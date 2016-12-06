@@ -17,14 +17,11 @@ public class DirectionForceController : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        
+	void Update () {        
 
         if (Input.GetMouseButtonDown(0))
         {
             vStartVector = Input.mousePosition;
-
-
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -33,10 +30,7 @@ public class DirectionForceController : MonoBehaviour {
             Vector3 vDirection = vEndVector - vStartVector;
             Object_RB.AddForce(vDirection * Speed);
         }
-
         Debug.Log("startvec:" + vStartVector + " Endvec:" + vEndVector);
-
-
     }
 
 
