@@ -8,13 +8,12 @@ public class CameraController : MonoBehaviour {
     public float x_offset, y_offset, z_offset;
 	// Use this for initialization
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        transform.position = new Vector3(obj_tracked.position.x + x_offset, obj_tracked.position.y + y_offset, obj_tracked.position.z + z_offset);
         transform.LookAt(obj_tracked);
-        transform.position = obj_tracked.position - new Vector3(x_offset, y_offset, z_offset);
-		
-	}
+    }
+
+    // Update is called once per frame
+    void Update () {
+        transform.position = new Vector3(obj_tracked.position.x + x_offset, obj_tracked.position.y + y_offset, obj_tracked.position.z + z_offset);
+    }
 }

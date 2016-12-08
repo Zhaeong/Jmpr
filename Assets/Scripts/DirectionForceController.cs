@@ -3,9 +3,10 @@ using System.Collections;
 
 public class DirectionForceController : MonoBehaviour {
 
-    private Rigidbody Object_RB;
     public float Speed;
-    public float zForce;
+    public bool bGrounded;
+    private Rigidbody Object_RB;
+
 
     Vector3 vStartVector;
     Vector3 vEndVector; 
@@ -14,27 +15,37 @@ public class DirectionForceController : MonoBehaviour {
         Object_RB = gameObject.GetComponent<Rigidbody>();
         vStartVector = Vector3.zero;
         vEndVector = Vector3.zero;
-
+        bGrounded = true;
     }
 	
 	// Update is called once per frame
-	void Update () {        
+	void Update () {
 
         if (Input.GetMouseButtonDown(0))
         {
             vStartVector = Input.mousePosition;
         }
-
-        if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))
         {
             vEndVector = Input.mousePosition;
             Vector3 vDirection = vEndVector - vStartVector;
-            Vector3 vForce = new Vector3(vDirection.x, vDirection.y, zForce);
-            Object_RB.AddForce(vForce * Speed);
-            Debug.Log("startvec:" + vStartVector + " Endvec:" + vEndVector + "Forcevec: " + vForce);
+            Vector3 vForce = Quaternion.Euler(45, 0, 0) * vDirection;
+            if (bGrounded)
+            {
+                Object_RB.AddForce(vForce * Speed);
+                bGrounded = false;
+
+            }
+
+            Debug.Log("startvec:" + vStartVector + " Endvec:" + vEndVector + "Forcevec: " + vForce + "mousedirVector:" + vDirection);
         }
-        
+        else if (Input.GetMouseButton(0)) //mouse held down
+        {
+            vEndVector = Input.mousePosition;
+            float magnitude = Vector3.Distance(vStartVector, vEndVector);
+            GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
+            icoSphere.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitude;
+
+        }
     }
-
-
 }
