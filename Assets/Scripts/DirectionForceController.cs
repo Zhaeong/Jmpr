@@ -5,6 +5,7 @@ public class DirectionForceController : MonoBehaviour {
 
     private Rigidbody Object_RB;
     public float Speed;
+    public float zForce;
 
     Vector3 vStartVector;
     Vector3 vEndVector; 
@@ -28,9 +29,11 @@ public class DirectionForceController : MonoBehaviour {
         {
             vEndVector = Input.mousePosition;
             Vector3 vDirection = vEndVector - vStartVector;
-            Object_RB.AddForce(vDirection * Speed);
+            Vector3 vForce = new Vector3(vDirection.x, vDirection.y, zForce);
+            Object_RB.AddForce(vForce * Speed);
+            Debug.Log("startvec:" + vStartVector + " Endvec:" + vEndVector + "Forcevec: " + vForce);
         }
-        Debug.Log("startvec:" + vStartVector + " Endvec:" + vEndVector);
+        
     }
 
 
