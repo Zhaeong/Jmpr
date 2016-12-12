@@ -37,7 +37,7 @@ public class DirectionForceController : MonoBehaviour {
 
             }
 
-            Debug.Log("startvec:" + vStartVector + " Endvec:" + vEndVector + "Forcevec: " + vForce + "mousedirVector:" + vDirection);
+            //Debug.Log("startvec:" + vStartVector + " Endvec:" + vEndVector + "Forcevec: " + vForce + "mousedirVector:" + vDirection);
         }
         else if (Input.GetMouseButton(0)) //mouse held down
         {
@@ -45,6 +45,7 @@ public class DirectionForceController : MonoBehaviour {
             float magnitude = Vector3.Distance(vStartVector, vEndVector);
             GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
             icoSphere.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitude;
+            icoSphere.GetComponent<RotationByMagnitude>().rotationAngle = vEndVector - vStartVector;
 
         }
     }

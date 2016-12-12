@@ -28,6 +28,8 @@ public class CollisionController : MonoBehaviour {
     void OnTriggerExit(Collider other)
     {
         Destroy(gameObject);
+        GameObject PlatSpwn = GameObject.FindGameObjectWithTag("PlatformSpawner");
+        PlatSpwn.GetComponent<PlatformSpawner>().SpawnPlatform = false;
     }
 
 
