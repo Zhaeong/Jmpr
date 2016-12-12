@@ -5,6 +5,7 @@ public class DirectionForceController : MonoBehaviour {
 
     public float Speed;
     public bool bGrounded;
+    public GameObject Particles, Particles2, Particles3;
     private Rigidbody Object_RB;
 
 
@@ -33,6 +34,9 @@ public class DirectionForceController : MonoBehaviour {
             if (bGrounded)
             {
                 Object_RB.AddForce(vForce * Speed);
+                Instantiate(Particles, transform.position, new Quaternion(0, 0, 0, 90));
+                Instantiate(Particles2, transform.position, new Quaternion(0, 0, 0, 90));
+                Instantiate(Particles3, transform.position, new Quaternion(0, 0, 0, 90));
                 bGrounded = false;
 
             }
