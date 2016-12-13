@@ -3,11 +3,8 @@
 Shader "Custom/FirstMultiPassShader"
 {
 	Properties{
-
 		_Outline("Outline Thickness", Range(0.0, 5)) = 0.002
 		_OutlineColor("Outline Color", Color) = (0,0,0,1)
-
-
 	}
 		CGINCLUDE
 		#include "UnityCG.cginc"
@@ -36,44 +33,44 @@ Shader "Custom/FirstMultiPassShader"
 	ENDCG
 
 		SubShader
-	{
-		Tags{
-		"RenderType" = "Opaque"
-		"Queue" = "Transparent"
-	}
+		{
+			Tags{
+			"RenderType" = "Opaque"
+			"Queue" = "Transparent"
+			}
 
 		Pass{
-		Name "OUTLINE"
+			Name "OUTLINE"
 
-		Cull Front
+			Cull Front
 
-		CGPROGRAM
-		#pragma vertex vert
-		#pragma fragment frag
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
 
-		v2f vert(appdata v)
-	{
-		v2f o;
-		o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
-		half3 norm = mul((half3x3)UNITY_MATRIX_IT_MV, v.normal);
-		half2 offset = TransformViewToProjection(norm.xy);
-		o.pos.xy += offset * o.pos.z * _Outline;
-		o.color = _OutlineColor;
-		return o;
-	}
+			v2f vert(appdata v)
+			{
+				v2f o;
+				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				half3 norm = mul((half3x3)UNITY_MATRIX_IT_MV, v.normal);
+				half2 offset = TransformViewToProjection(norm.xy);
+				o.pos.xy += offset * o.pos.z * _Outline;
+				o.color = _OutlineColor;
+				return o;
+			}
 
-	fixed4 frag(v2f i) : COLOR
-	{
-		fixed4 o;
-		o = i.color;
-		return o;
-	}
-		ENDCG
-	}
+			fixed4 frag(v2f i) : COLOR
+			{
+				fixed4 o;
+				o = i.color;
+				return o;
+			}
+			ENDCG
+		}
 
 		Pass
-	{
-
-	}
+		{
+			//Second pass to render the texture
+		}
 	}
 }
