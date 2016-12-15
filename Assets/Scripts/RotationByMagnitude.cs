@@ -17,8 +17,8 @@ public class RotationByMagnitude : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //transform.rotation = Quaternion.Euler(MagnitudeofVelocity, 0, 0 );
         transform.rotation = Quaternion.Euler(rotationAngle.y, 0, -rotationAngle.x);
+
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         
         if (!player.GetComponent<DirectionForceController>().bGrounded)

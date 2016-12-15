@@ -49,7 +49,9 @@ public class DirectionForceController : MonoBehaviour {
             float magnitude = Vector3.Distance(vStartVector, vEndVector);
             GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
             icoSphere.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitude;
-            icoSphere.GetComponent<RotationByMagnitude>().rotationAngle = vEndVector - vStartVector;
+            Vector3 vDirectionRot = vEndVector - vStartVector;
+            Vector3 vForceRot = Quaternion.Euler(45, 0, 0) * vDirectionRot;
+            icoSphere.GetComponent<RotationByMagnitude>().rotationAngle = vForceRot;
 
         }
     }
