@@ -12,15 +12,13 @@ public class RotationByMagnitude : MonoBehaviour {
 	void Start () {
         y_rot = 0;
         x_rot = 0;
-
     }
 	
 	// Update is called once per frame
 	void Update () {
         transform.rotation = Quaternion.Euler(rotationAngle.y, 0, -rotationAngle.x);
-
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        
+        //In air rotation after button released
         if (!player.GetComponent<DirectionForceController>().bGrounded)
         {            
             transform.Rotate(y_rot += rotationAngle.y/In_air_rotation_damping, 0, x_rot -= rotationAngle.x/ In_air_rotation_damping);

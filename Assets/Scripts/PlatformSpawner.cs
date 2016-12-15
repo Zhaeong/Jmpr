@@ -13,12 +13,11 @@ public class PlatformSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         SpawnPlatform = false;
-
-
     }
 	
 	// Update is called once per frame
 	void Update () {
+        //Moves the spawner postion to the player's position + DistanceOffset in the z axis
         transform.position = new Vector3(PlayerChar.transform.position.x, 0, PlayerChar.transform.position.z + DistanceOffset);
         if (SpawnPlatform)
         {
