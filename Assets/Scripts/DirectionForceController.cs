@@ -4,6 +4,7 @@ using System.Collections;
 public class DirectionForceController : MonoBehaviour {
 
     public float Speed;
+    public float Angle_of_Forward_force;
     public bool bGrounded;
     public GameObject Particles, Particles2, Particles3;
     private Rigidbody Object_RB;
@@ -30,7 +31,7 @@ public class DirectionForceController : MonoBehaviour {
         {
             vEndVector = Input.mousePosition;
             Vector3 vDirection = vEndVector - vStartVector;
-            Vector3 vForce = Quaternion.Euler(45, 0, 0) * vDirection;
+            Vector3 vForce = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirection;
             if (bGrounded)
             {
                 Object_RB.AddForce(vForce * Speed);
@@ -50,7 +51,7 @@ public class DirectionForceController : MonoBehaviour {
             GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
             icoSphere.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitude;
             Vector3 vDirectionRot = vEndVector - vStartVector;
-            Vector3 vForceRot = Quaternion.Euler(45, 0, 0) * vDirectionRot;
+            Vector3 vForceRot = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirectionRot;
             icoSphere.GetComponent<RotationByMagnitude>().rotationAngle = vForceRot;
 
         }
