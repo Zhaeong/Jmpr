@@ -16,13 +16,19 @@ public class CollisionController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        //Remove the sphere spin
         other.GetComponent<Rigidbody>().velocity = Vector3.zero;
         other.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-        other.GetComponent<DirectionForceController>().bGrounded = true;
-        GameObject PlatSpwn = GameObject.FindGameObjectWithTag("PlatformSpawner");
         GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
-        icoSphere.transform.rotation = Quaternion.Euler(0,0,0);        
+        icoSphere.transform.rotation = Quaternion.Euler(0, 0, 0);
+        //indicate ground so that new spin can be applied
+        other.GetComponent<DirectionForceController>().bGrounded = true;
+        //Spawn other platform
+        GameObject PlatSpwn = GameObject.FindGameObjectWithTag("PlatformSpawner");
         PlatSpwn.GetComponent<PlatformSpawner>().SpawnPlatform = true;
+        //Add score        
+        other.GetComponent<GameController>().addScore();
+
     }
 
     void OnTriggerExit(Collider other)
