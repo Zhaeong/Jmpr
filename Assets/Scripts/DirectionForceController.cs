@@ -32,17 +32,16 @@ public class DirectionForceController : MonoBehaviour {
             vEndVector = Input.mousePosition;
             Vector3 vDirection = vEndVector - vStartVector;
             Vector3 vForce = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirection;
-            if (bGrounded)
-            {
+            //if (bGrounded)
+            //{
                 Object_RB.AddForce(vForce * Speed);
                 Instantiate(Particles, transform.position, new Quaternion(0, 0, 0, 90));
                 Instantiate(Particles2, transform.position, new Quaternion(0, 0, 0, 90));
                 Instantiate(Particles3, transform.position, new Quaternion(0, 0, 0, 90));
                 bGrounded = false;
 
-            }
-
-            //Debug.Log("startvec:" + vStartVector + " Endvec:" + vEndVector + "Forcevec: " + vForce + "mousedirVector:" + vDirection);
+            //}
+            
         }
         else if (Input.GetMouseButton(0)) //mouse held down
         {
