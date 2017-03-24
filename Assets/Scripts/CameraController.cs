@@ -6,6 +6,7 @@ public class CameraController : MonoBehaviour {
 
     public Transform obj_tracked;
     public float x_offset, y_offset, z_offset;
+    public float x_rotation, y_rotation, z_rotation;
 	// Use this for initialization
 	void Start () {
         transform.position = new Vector3(obj_tracked.position.x + x_offset, obj_tracked.position.y + y_offset, obj_tracked.position.z + z_offset);
@@ -15,5 +16,7 @@ public class CameraController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         transform.position = new Vector3(obj_tracked.position.x + x_offset, obj_tracked.position.y + y_offset, obj_tracked.position.z + z_offset);
+        
+        transform.rotation = Quaternion.Euler(new Vector3(x_rotation, y_rotation, z_rotation));
     }
 }
