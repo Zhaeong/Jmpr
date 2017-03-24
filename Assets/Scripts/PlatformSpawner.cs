@@ -6,9 +6,11 @@ public class PlatformSpawner : MonoBehaviour {
 
     public Transform PlayerChar;
     public GameObject Platform;
+    public GameObject MovingPlatform;
     public float DistanceOffset;
 
     public bool SpawnPlatform;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -21,10 +23,27 @@ public class PlatformSpawner : MonoBehaviour {
         transform.position = new Vector3(PlayerChar.transform.position.x, 0, PlayerChar.transform.position.z + DistanceOffset);
         if (SpawnPlatform)
         {
-            GameObject newPlat = Instantiate(Platform);
-            newPlat.transform.position = transform.position;
-            SpawnPlatform = false;
+            int Score = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore();
+
+            if (Score > 3)
+            {
+                SpawnPlatformAhead(MovingPlatform);
+
+            }
+            else
+            {
+                SpawnPlatformAhead(Platform);
+            }
+            
+
         }
 		
 	}
+
+    void SpawnPlatformAhead(GameObject platFormType)
+    {
+        GameObject newPlat = Instantiate(platFormType);
+        newPlat.transform.position = transform.position;
+        SpawnPlatform = false;
+    }
 }

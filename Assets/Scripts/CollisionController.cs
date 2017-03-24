@@ -23,11 +23,20 @@ public class CollisionController : MonoBehaviour {
         icoSphere.transform.rotation = Quaternion.Euler(0, 0, 0);
         //indicate ground so that new spin can be applied
         other.GetComponent<DirectionForceController>().bGrounded = true;
+
         //Spawn other platform
         GameObject PlatSpwn = GameObject.FindGameObjectWithTag("PlatformSpawner");
         PlatSpwn.GetComponent<PlatformSpawner>().SpawnPlatform = true;
         //Add score        
         other.GetComponent<GameController>().addScore();
+
+        //Moving Platform handler
+
+        string tag = gameObject.tag;
+        if (gameObject.tag == "MovingPlatform")
+        {
+            gameObject.GetComponent<MovementPlatformController>().isPlayerOn = true;
+        }
 
     }
 
