@@ -42,7 +42,17 @@ public class CollisionController : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
-        Destroy(gameObject);
+        if (gameObject.tag == "MovingPlatform")
+        {
+            GameObject PlatParent = gameObject.transform.parent.gameObject;            
+            Destroy(PlatParent);
+            
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
         GameObject PlatSpwn = GameObject.FindGameObjectWithTag("PlatformSpawner");
         PlatSpwn.GetComponent<PlatformSpawner>().SpawnPlatform = false;
     }
