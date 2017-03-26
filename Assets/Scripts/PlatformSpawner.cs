@@ -9,39 +9,53 @@ public class PlatformSpawner : MonoBehaviour {
     public GameObject MovingPlatform;
     public float DistanceOffset;
 
+    public float MovingPlatSpeed;
+
     public bool SpawnPlatform;
     
 
 	// Use this for initialization
 	void Start () {
         SpawnPlatform = false;
+        MovingPlatSpeed = 2;
     }
 	
 	// Update is called once per frame
 	void Update () {
         //Moves the spawner postion to the player's position + DistanceOffset in the z axis
+        
         transform.position = new Vector3(PlayerChar.transform.position.x, 0, PlayerChar.transform.position.z + DistanceOffset);
         if (SpawnPlatform)
         {
             int Score = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore();
 
-            if (Score > 3)
+    
+            if (Score > 6)
             {
-                SpawnPlatformAhead(MovingPlatform);
+                MovingPlatSpeed = 5;
+                SpawnPlatType(MovingPlatform);
 
             }
+            else if (Score > 3)
+            {
+                SpawnPlatType(MovingPlatform);
+
+            }            
             else
             {
-                SpawnPlatformAhead(Platform);
-            }
-            
+                SpawnPlatType(Platform);
+            }            
 
         }
+        
 		
 	}
 
-    void SpawnPlatformAhead(GameObject platFormType)
+
+    void SpawnPlatType(GameObject platFormType)
     {
+
+
         GameObject newPlat = Instantiate(platFormType);
         newPlat.transform.position = transform.position;
         SpawnPlatform = false;

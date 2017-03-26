@@ -9,7 +9,6 @@ public class MovementPlatformController : MonoBehaviour {
     public GameObject Anchor1;
     public GameObject Anchor2;
     public bool isPlayerOn;
-    public float speed;
 
     private bool moveRight;
 
@@ -22,6 +21,8 @@ public class MovementPlatformController : MonoBehaviour {
 	void Update () {
         if (!isPlayerOn)
         {
+
+            float speed = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>().MovingPlatSpeed;
             float step = speed * Time.deltaTime;
 
             if (moveRight)

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class CollisionController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    GameController GC;
+    // Use this for initialization
+    void Start () {
+        GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>();
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,7 +28,11 @@ public class CollisionController : MonoBehaviour {
 
         //Spawn other platform
         GameObject PlatSpwn = GameObject.FindGameObjectWithTag("PlatformSpawner");
-        PlatSpwn.GetComponent<PlatformSpawner>().SpawnPlatform = true;
+       PlatSpwn.GetComponent<PlatformSpawner>().SpawnPlatform = true;
+
+        //Notify game controller that player is on platform        
+        GC.onPlatform = true;
+
         //Add score        
         other.GetComponent<GameController>().addScore();
 
@@ -52,9 +58,8 @@ public class CollisionController : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-        
-        GameObject PlatSpwn = GameObject.FindGameObjectWithTag("PlatformSpawner");
-        PlatSpwn.GetComponent<PlatformSpawner>().SpawnPlatform = false;
+
+        GC.onPlatform = false;
     }
 
 
