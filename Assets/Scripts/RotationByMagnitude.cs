@@ -22,7 +22,7 @@ public class RotationByMagnitude : MonoBehaviour {
         if (!player.GetComponent<DirectionForceController>().bGrounded)
         {            
             transform.Rotate(y_rot += rotationAngle.y/In_air_rotation_damping, 0, x_rot -= rotationAngle.x/ In_air_rotation_damping);
-            Debug.Log(rotationAngle);
+            //Debug.Log(rotationAngle);
         }
     }
 }

@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SendScoreObj : MonoBehaviour {
+public class SendScoreObj{
+    public string PersonAlias;
+    public int Score;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public SendScoreObj(string alias, int score)
+    {
+        this.PersonAlias = alias;
+        this.Score = score;
+    }
+
+
 }
