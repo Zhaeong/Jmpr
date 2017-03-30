@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "700642062327",
+    "firebase_url": "https://jmpr-909dd.firebaseio.com",
+    "project_id": "jmpr-909dd",
+    "storage_bucket": "jmpr-909dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700642062327:android:93778ec8278550a9",
+        "android_client_info": {
+          "package_name": "com.jmpr.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700642062327-igqoqst2pt6jq6p93c015ap91dta5bkb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGuNWs1orzZ1DomA2b8GUCW4a7km5HvXQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

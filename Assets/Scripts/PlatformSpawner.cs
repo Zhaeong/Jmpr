@@ -9,6 +9,8 @@ public class PlatformSpawner : MonoBehaviour {
     public GameObject MovingPlatform;
     public float DistanceOffset;
 
+    private Vector3 PlayerStartingPosit;
+
     public float MovingPlatSpeed;
 
     public bool SpawnPlatform;
@@ -16,6 +18,7 @@ public class PlatformSpawner : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        PlayerStartingPosit = PlayerChar.position;
         SpawnPlatform = false;
         MovingPlatSpeed = 2;
     }
@@ -54,10 +57,22 @@ public class PlatformSpawner : MonoBehaviour {
 
     void SpawnPlatType(GameObject platFormType)
     {
-
-
         GameObject newPlat = Instantiate(platFormType);
         newPlat.transform.position = transform.position;
         SpawnPlatform = false;
+    }
+
+    public void RespawnGameStart()
+    {
+        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
+        foreach (GameObject plat in platforms)
+        {
+            Destroy(plat);
+        }
+        GameObject newPlat = Instantiate(Platform);
+        newPlat.transform.position = new Vector3(PlayerStartingPosit.x, PlayerStartingPosit.y - 1, PlayerStartingPosit.z);
+
+        PlayerChar.transform.position = PlayerStartingPosit;
+
     }
 }

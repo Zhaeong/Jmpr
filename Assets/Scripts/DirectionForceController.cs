@@ -8,12 +8,14 @@ public class DirectionForceController : MonoBehaviour {
     public bool bGrounded;
     public GameObject Particles, Particles2, Particles3;
     private Rigidbody Object_RB;
+    private GameController GC;
 
 
     Vector3 vStartVector;
     Vector3 vEndVector; 
     // Use this for initialization
     void Start () {
+        GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>();
         Object_RB = gameObject.GetComponent<Rigidbody>();
         vStartVector = Vector3.zero;
         vEndVector = Vector3.zero;
@@ -23,6 +25,16 @@ public class DirectionForceController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        if (GC.GameStart)
+        {
+            mouseControls();
+            touchControls();
+        }        
+
+    }
+
+    private void mouseControls()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             vStartVector = Input.mousePosition;
@@ -34,14 +46,14 @@ public class DirectionForceController : MonoBehaviour {
             Vector3 vForce = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirection;
             //if (bGrounded)
             //{
-                Object_RB.AddForce(vForce * Speed);
-                Instantiate(Particles, transform.position, new Quaternion(0, 0, 0, 90));
-                Instantiate(Particles2, transform.position, new Quaternion(0, 0, 0, 90));
-                Instantiate(Particles3, transform.position, new Quaternion(0, 0, 0, 90));
-                bGrounded = false;
+            Object_RB.AddForce(vForce * Speed);
+            Instantiate(Particles, transform.position, new Quaternion(0, 0, 0, 90));
+            Instantiate(Particles2, transform.position, new Quaternion(0, 0, 0, 90));
+            Instantiate(Particles3, transform.position, new Quaternion(0, 0, 0, 90));
+            bGrounded = false;
 
             //}
-            
+
         }
         else if (Input.GetMouseButton(0)) //mouse held down
         {
@@ -54,12 +66,9 @@ public class DirectionForceController : MonoBehaviour {
             icoSphere.GetComponent<RotationByMagnitude>().rotationAngle = vForceRot;
 
         }
-
-        touchControls();
-
     }
 
-    void touchControls()
+    private void touchControls()
     {
         int nbTouches = Input.touchCount;
 
