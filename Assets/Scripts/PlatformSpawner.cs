@@ -35,7 +35,7 @@ public class PlatformSpawner : MonoBehaviour {
     
             if (Score > 6)
             {
-                MovingPlatSpeed = 5;
+                MovingPlatSpeed = Score/2;
                 SpawnPlatType(MovingPlatform);
 
             }

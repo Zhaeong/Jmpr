@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
     public bool GameStart;
 
     private PlatformSpawner PC;
+    private GuiController GC;
 
 
     // Use this for initialization
@@ -29,6 +30,7 @@ public class GameController : MonoBehaviour {
         GameStart = false;
 
         PC = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>();
+        GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GuiController>();
     }
 	
 	// Update is called once per frame
@@ -85,13 +87,19 @@ public class GameController : MonoBehaviour {
         // Do something with the data in args.Snapshot
 
         DataSnapshot snapshot = args.Snapshot;
-
+        ArrayList SendScoreList = new ArrayList();
         foreach (DataSnapshot child in snapshot.Children)
         {
             string personAlias = child.Child("PersonAlias").Value.ToString();
             string personScore = child.Child("Score").Value.ToString();
-            Debug.Log(personAlias + " --" + personScore);
-        }            
+
+            SendScoreObj person = new SendScoreObj(personAlias, int.Parse(personScore));
+            SendScoreList.Add(person);
+
+            //Debug.Log(personAlias + " --" + personScore);
+        }
+        GC.LeaderboardScores = SendScoreList;
+
     }
 
 }
