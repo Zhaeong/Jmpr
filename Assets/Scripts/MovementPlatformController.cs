@@ -14,15 +14,25 @@ public class MovementPlatformController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        moveRight = true;
+        int random = Random.Range(0, 2);        
+        moveRight = (random == 1);
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (!isPlayerOn)
         {
-
             float speed = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>().MovingPlatSpeed;
+            if (gameObject.tag == "MovingPlatform")
+            {
+                speed = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>().MovingPlatSpeed;
+            }
+            else if (gameObject.tag == "BarrierMovingPlatform")
+            {
+                speed = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>().BarrierMovingPlatSpeed;
+            }
+            
             float step = speed * Time.deltaTime;
 
             if (moveRight)

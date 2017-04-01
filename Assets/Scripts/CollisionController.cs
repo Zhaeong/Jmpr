@@ -39,7 +39,7 @@ public class CollisionController : MonoBehaviour {
         //Moving Platform handler
 
         string tag = gameObject.tag;
-        if (gameObject.tag == "MovingPlatform")
+        if (gameObject.tag == "MovingPlatform" || gameObject.tag == "BarrierMovingPlatform")
         {
             gameObject.GetComponent<MovementPlatformController>().isPlayerOn = true;
         }

@@ -6,13 +6,16 @@ using UnityEngine;
 public class GuiController : MonoBehaviour {
 
     public ArrayList LeaderboardScores;
+    public Texture2D TextBckgrd;
     private GameController GC;
 
     private bool StartMenu, ScoreMenu, SubmitScoreMenu, LeaderboardMenu;
 
-    private string stringToEdit = "enter";
+    private string stringToEdit = "enter name";
 
     private Vector2 scrollPosition = Vector2.zero;
+
+    private GUIStyle style;
 
     // Use this for initialization
     void Start () {
@@ -22,6 +25,15 @@ public class GuiController : MonoBehaviour {
         ScoreMenu = false;
         SubmitScoreMenu = false;
         LeaderboardMenu = false;
+
+
+        //GuiStyle params
+        style = new GUIStyle();
+        style.fontSize = 40;
+        style.border = new RectOffset(3, 3, 3, 3);
+        style.normal.background = TextBckgrd;
+        
+        
     }
 	
 	// Update is called once per frame
@@ -36,14 +48,14 @@ public class GuiController : MonoBehaviour {
         int Button_y_width = 150;
         if (!GC.GameStart && StartMenu)
         {
-            if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2, Button_x_width, Button_y_width), "Start"))
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width/2), Screen.height / 2, Button_x_width, Button_y_width), "Start", style))
             {
                 Time.timeScale = 1;
                 Invoke("StartGameFunc", 0.1f);
                 
             }
 
-            if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2 + Button_y_width, Button_x_width, Button_y_width), "Scores"))
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + Button_y_width, Button_x_width, Button_y_width), "Scores", style))
             {
                 ScoreMenu = true;
                 StartMenu = false;
@@ -55,7 +67,7 @@ public class GuiController : MonoBehaviour {
 
         if (ScoreMenu)
         {        
-            if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2, Button_x_width, Button_y_width), "Submit Score"))
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2, Button_x_width, Button_y_width), "Submit Score", style))
             {
                 SubmitScoreMenu = true;
                 StartMenu = false;
@@ -64,7 +76,7 @@ public class GuiController : MonoBehaviour {
                 
             }
 
-            if (GUI.Button(new Rect(Screen.width / 2 , Screen.height / 2 + Button_y_width, Button_x_width, Button_y_width), "Leaderboard"))
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + Button_y_width, Button_x_width, Button_y_width), "Leaderboard", style))
             {
                 LeaderboardMenu = true;
                 ScoreMenu = false;
@@ -75,7 +87,7 @@ public class GuiController : MonoBehaviour {
                
             }
 
-            if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2 + (Button_y_width *2), Button_x_width, Button_y_width), "Back"))
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + (Button_y_width *2), Button_x_width, Button_y_width), "Back", style))
             {
                 StartMenu = true;
                 ScoreMenu = false;
@@ -87,9 +99,13 @@ public class GuiController : MonoBehaviour {
 
         if (SubmitScoreMenu)
         {
-            stringToEdit = GUI.TextField(new Rect(Screen.width / 2, Screen.height / 2, 200, 20), stringToEdit, 25);
+            int textSubmitbox = 100;
 
-            if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2 + Button_y_width, Button_x_width, Button_y_width), "Submit"))
+            stringToEdit = GUI.TextField(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2, 200, textSubmitbox), stringToEdit, 25, style);
+
+            
+
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + textSubmitbox + 20, Button_x_width, Button_y_width), "Submit", style))
             {
 
                 GC.SubmitScore(stringToEdit);
@@ -97,7 +113,7 @@ public class GuiController : MonoBehaviour {
 
             }
 
-            if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2 + (Button_y_width*2), Button_x_width, Button_y_width), "Back"))
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + (textSubmitbox * 2) + 40, Button_x_width, Button_y_width), "Back", style))
             {
                 ScoreMenu = true;
                 StartMenu = false;                
@@ -111,15 +127,24 @@ public class GuiController : MonoBehaviour {
         {
             GC.GetLeaderboard();
 
-            int Screen_x_name = 0;
-            int Screen_x_score = 100;
+            int Screen_x_name_width = 300;
+            int Screen_x_name_height = 50;
+
+            int Screen_x_scor_width = 50;
+            int Screen_x_scor_height = 50;
+
+            int Screen_x_name_posit = 0;
+            int Screen_x_score_posit = Screen_x_name_width + 10;
+
+            
+
             int Screen_y = 0;
             
             if (LeaderboardScores != null)
             {                
 
                 int numScores = LeaderboardScores.Count;
-                scrollPosition = GUI.BeginScrollView(new Rect(Screen.width / 2, Screen.height / 2, 400, 300), scrollPosition, new Rect(0, 0, 400, numScores*50));
+                scrollPosition = GUI.BeginScrollView(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2, 400, 200), scrollPosition, new Rect(0, 0, 400, numScores*50),false,true);
 
                 for (int i = LeaderboardScores.Count -1 ; i >= 0; i--)
                 {
@@ -127,16 +152,16 @@ public class GuiController : MonoBehaviour {
 
                     
 
-                    GUI.Label(new Rect(Screen_x_name, Screen_y, 150, 50), SSO.PersonAlias);
-                    GUI.Label(new Rect(Screen_x_score, Screen_y, 25, 50), SSO.Score.ToString());
-                    Screen_y += 20;
+                    GUI.Label(new Rect(Screen_x_name_posit, Screen_y, Screen_x_name_width, Screen_x_name_height), SSO.PersonAlias, style);
+                    GUI.Label(new Rect(Screen_x_score_posit, Screen_y, Screen_x_scor_width, Screen_x_scor_height), SSO.Score.ToString(), style);
+                    Screen_y += 50;
                 }
                 GUI.EndScrollView();
 
             }
 
 
-            if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2 + 300, Button_x_width, Button_y_width), "Back"))
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + 300, Button_x_width, Button_y_width), "Back", style))
             {
                 ScoreMenu = true;
                 StartMenu = false;

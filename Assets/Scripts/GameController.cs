@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
     public bool SpawnPlatform;
     public bool GameStart;
 
-    private PlatformSpawner PC;
+    private PlatformSpawner PS;
     private GuiController GC;
 
 
@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour {
         SpawnPlatform = false;
         GameStart = false;
 
-        PC = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>();
+        PS = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>();
         GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GuiController>();
     }
 	
@@ -55,8 +55,9 @@ public class GameController : MonoBehaviour {
     public void resumeGame()
     {
         GameStart = true;
+        
         iScore = 0;
-        PC.RespawnGameStart(); 
+        PS.RespawnGameStart(); 
     }
 
     public void SubmitScore(string name)

@@ -5,15 +5,26 @@ using UnityEngine;
 public class PlatformSpawner : MonoBehaviour {
 
     public Transform PlayerChar;
+
+    //Platforms
     public GameObject Platform;
     public GameObject MovingPlatform;
-    public float DistanceOffset;
+    public GameObject BarrierPlatform;
+    public GameObject BarrierMovingPlatform;
+
+
+    public float DistanceOffsetMin, DistanceOffsetMax;
+
+    private float DistanceOffsetMaxAug;
 
     private Vector3 PlayerStartingPosit;
 
-    public float MovingPlatSpeed;
+    public float MovingPlatSpeed, BarrierMovingPlatSpeed;
 
     public bool SpawnPlatform;
+
+    private int GameScore;
+    private int RangesAvailSpawn;
     
 
 	// Use this for initialization
@@ -21,42 +32,85 @@ public class PlatformSpawner : MonoBehaviour {
         PlayerStartingPosit = PlayerChar.position;
         SpawnPlatform = false;
         MovingPlatSpeed = 2;
+        BarrierMovingPlatSpeed = 2;
+        RangesAvailSpawn = 1;
+
+        DistanceOffsetMaxAug = DistanceOffsetMax;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        //Moves the spawner postion to the player's position + DistanceOffset in the z axis
+
         
-        transform.position = new Vector3(PlayerChar.transform.position.x, 0, PlayerChar.transform.position.z + DistanceOffset);
         if (SpawnPlatform)
         {
-            int Score = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore();
+            //Moves the spawner postion to the player's position + DistanceOffset in the z axis
 
-    
-            if (Score > 6)
+            GameScore = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore();
+            float DistanceOffset = Random.Range(DistanceOffsetMin, DistanceOffsetMaxAug);
+            transform.position = new Vector3(PlayerChar.transform.position.x, 0, PlayerChar.transform.position.z + DistanceOffset);
+
+
+
+            if (GameScore == 5)
             {
-                MovingPlatSpeed = Score/2;
+                RangesAvailSpawn += 1;
                 SpawnPlatType(MovingPlatform);
-
             }
-            else if (Score > 3)
+            else if (GameScore == 10)
             {
-                SpawnPlatType(MovingPlatform);
-
-            }            
+                RangesAvailSpawn += 1;
+                SpawnPlatType(BarrierPlatform);
+            }
+            else if (GameScore == 20)
+            {
+                RangesAvailSpawn += 1;
+                SpawnPlatType(BarrierMovingPlatform);
+            }
             else
             {
-                SpawnPlatType(Platform);
-            }            
+                //Determine which platform to spawn
+                int whichPlattoSpawn = Random.Range(0, RangesAvailSpawn);
+                SpawnPlatByIndex(whichPlattoSpawn);
 
-        }
-        
-		
+                //Add distance by which platform can spawn
+                DistanceOffsetMaxAug += GameScore / 8;
+
+
+
+            }
+            
+            //Debug.Log(DistanceOffset);
+        } 
 	}
 
 
+    void SpawnPlatByIndex(int PlatNum)
+    {
+        switch (PlatNum)
+        {
+            case 0:
+                SpawnPlatType(Platform);
+                break;
+            case 1:
+                SpawnPlatType(MovingPlatform);
+                break;
+            case 2:
+                SpawnPlatType(BarrierPlatform);
+                break;
+            case 3:
+                SpawnPlatType(BarrierMovingPlatform);
+                break;
+            default:
+                SpawnPlatType(Platform);
+                break;
+        }
+
+    }
+
     void SpawnPlatType(GameObject platFormType)
     {
+        MovingPlatSpeed = GameScore / 2;
         GameObject newPlat = Instantiate(platFormType);
         newPlat.transform.position = transform.position;
         SpawnPlatform = false;
@@ -73,6 +127,8 @@ public class PlatformSpawner : MonoBehaviour {
         newPlat.transform.position = new Vector3(PlayerStartingPosit.x, PlayerStartingPosit.y - 1, PlayerStartingPosit.z);
 
         PlayerChar.transform.position = PlayerStartingPosit;
+        RangesAvailSpawn = 1;
+        DistanceOffsetMaxAug = DistanceOffsetMax;
 
     }
 }

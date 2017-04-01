@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class RespawnController : MonoBehaviour {
 
-    public Transform RespawnPoint;
-    public GameObject PlayerChar;
+    //private Transform RespawnPoint;
+    private GameObject PlayerChar;
 
-    public float RespawnHeight;
+    private float RespawnHeight;
     private GameController GC;
 
     
@@ -17,7 +17,10 @@ public class RespawnController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>();
+        PlayerChar = GameObject.FindGameObjectWithTag("Player");
+        //RespawnPoint = GameObject.FindGameObjectWithTag("RespawnPoint").transform;
+        GC = PlayerChar.GetComponent<GameController>();
+        RespawnHeight = -5;
 
     }
 	
@@ -28,7 +31,11 @@ public class RespawnController : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        GC.pauseGame();
+        if (other.tag == "Player")
+        {
+            GC.pauseGame();
+        }
+        
     }
 
 
