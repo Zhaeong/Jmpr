@@ -100,7 +100,6 @@ public class GameController : MonoBehaviour {
             //Debug.Log(personAlias + " --" + personScore);
         }
         GC.LeaderboardScores = SendScoreList;
-
     }
 
 }
