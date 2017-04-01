@@ -52,7 +52,7 @@ public class PlatformSpawner : MonoBehaviour {
 
 
 
-            if (GameScore == 5)
+            if (GameScore == 3)
             {
                 RangesAvailSpawn += 1;
                 SpawnPlatType(MovingPlatform);
@@ -74,13 +74,10 @@ public class PlatformSpawner : MonoBehaviour {
                 SpawnPlatByIndex(whichPlattoSpawn);
 
                 //Add distance by which platform can spawn
-                DistanceOffsetMaxAug += GameScore / 8;
+                DistanceOffsetMaxAug += GameScore / 8;                       
 
-
-
-            }
+            }            
             
-            //Debug.Log(DistanceOffset);
         } 
 	}
 
@@ -94,12 +91,14 @@ public class PlatformSpawner : MonoBehaviour {
                 break;
             case 1:
                 SpawnPlatType(MovingPlatform);
+                MovingPlatSpeed = GameScore / 2;
                 break;
             case 2:
                 SpawnPlatType(BarrierPlatform);
                 break;
             case 3:
                 SpawnPlatType(BarrierMovingPlatform);
+                BarrierMovingPlatSpeed = GameScore / 2;
                 break;
             default:
                 SpawnPlatType(Platform);
@@ -110,7 +109,7 @@ public class PlatformSpawner : MonoBehaviour {
 
     void SpawnPlatType(GameObject platFormType)
     {
-        MovingPlatSpeed = GameScore / 2;
+        
         GameObject newPlat = Instantiate(platFormType);
         newPlat.transform.position = transform.position;
         SpawnPlatform = false;
