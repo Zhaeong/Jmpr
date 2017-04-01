@@ -23,6 +23,7 @@ public class CollisionController : MonoBehaviour {
         other.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
         icoSphere.transform.rotation = Quaternion.Euler(0, 0, 0);
+
         //indicate ground so that new spin can be applied
         other.GetComponent<DirectionForceController>().bGrounded = true;
 
