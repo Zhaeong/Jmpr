@@ -55,17 +55,17 @@ public class PlatformSpawner : MonoBehaviour {
             if (GameScore == 3)
             {
                 RangesAvailSpawn += 1;
-                SpawnPlatType(MovingPlatform);
+                SpawnPlatByIndex(1);
             }
             else if (GameScore == 10)
             {
                 RangesAvailSpawn += 1;
-                SpawnPlatType(BarrierPlatform);
+                SpawnPlatByIndex(2);
             }
             else if (GameScore == 20)
             {
                 RangesAvailSpawn += 1;
-                SpawnPlatType(BarrierMovingPlatform);
+                SpawnPlatByIndex(3);
             }
             else
             {
@@ -91,14 +91,14 @@ public class PlatformSpawner : MonoBehaviour {
                 break;
             case 1:
                 SpawnPlatType(MovingPlatform);
-                MovingPlatSpeed = GameScore / 2;
+                MovingPlatSpeed +=1;
                 break;
             case 2:
                 SpawnPlatType(BarrierPlatform);
                 break;
             case 3:
                 SpawnPlatType(BarrierMovingPlatform);
-                BarrierMovingPlatSpeed = GameScore / 2;
+                BarrierMovingPlatSpeed +=1;
                 break;
             default:
                 SpawnPlatType(Platform);
@@ -130,4 +130,5 @@ public class PlatformSpawner : MonoBehaviour {
         DistanceOffsetMaxAug = DistanceOffsetMax;
 
     }
+
 }

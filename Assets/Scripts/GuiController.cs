@@ -8,8 +8,11 @@ public class GuiController : MonoBehaviour {
     public ArrayList LeaderboardScores;
     public Texture2D TextBckgrd;
     public GUISkin CustomGS;
+    public bool DebugStats;
 
     private GameController GC;
+
+    private PlatformSpawner PC;
 
     private bool StartMenu, ScoreMenu, SubmitScoreMenu, LeaderboardMenu;
 
@@ -22,6 +25,7 @@ public class GuiController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>();
+        PC = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>();
 
         StartMenu = true;
         ScoreMenu = false;
@@ -45,8 +49,23 @@ public class GuiController : MonoBehaviour {
 
     void OnGUI()
     {
+
+        if (DebugStats)
+        {
+            GUI.Label(new Rect(0, 0, Screen.width, 100), string.Format("{0:N3}", "MovingPlat Speed: " + PC.MovingPlatSpeed), CustomGS.GetStyle("label"));
+            GUI.Label(new Rect(0, 100, Screen.width, 100), string.Format("{0:N3}", "BarrierPlat Speed: " + PC.BarrierMovingPlatSpeed), CustomGS.GetStyle("label"));
+        }
+        
+
+
         int Button_x_width = Screen.width / 2;
         int Button_y_width = Screen.height / 9;
+
+        //GUI.Label(new Rect(Button_x_width, Button_y_width, 100, 50), "dfdfdfdf");
+        
+
+
+
         if (!GC.GameStart && StartMenu)
         {
             if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width/2), Screen.height / 2, Button_x_width, Button_y_width), "Start", CustomGS.GetStyle("button")))

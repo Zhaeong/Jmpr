@@ -57,7 +57,10 @@ public class GameController : MonoBehaviour {
         GameStart = true;
         
         iScore = 0;
-        PS.RespawnGameStart(); 
+        PS.RespawnGameStart();
+
+        PS.MovingPlatSpeed = 2;
+        PS.BarrierMovingPlatSpeed = 2;
     }
 
     public void SubmitScore(string name)
@@ -101,6 +104,7 @@ public class GameController : MonoBehaviour {
         }
         GC.LeaderboardScores = SendScoreList;
     }
+
 
 }
 
