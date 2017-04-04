@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
 
     private PlatformSpawner PS;
     private GuiController GC;
+    private BackgroundSpawnerController BSC;
 
 
     // Use this for initialization
@@ -31,6 +32,7 @@ public class GameController : MonoBehaviour {
 
         PS = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>();
         GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GuiController>();
+        BSC = GameObject.FindGameObjectWithTag("BackgroundSpawner").GetComponent<BackgroundSpawnerController>();
     }
 	
 	// Update is called once per frame
@@ -61,6 +63,8 @@ public class GameController : MonoBehaviour {
 
         PS.MovingPlatSpeed = 2;
         PS.BarrierMovingPlatSpeed = 2;
+
+        BSC.Restart();
     }
 
     public void SubmitScore(string name)
