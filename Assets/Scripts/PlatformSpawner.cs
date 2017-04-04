@@ -74,7 +74,11 @@ public class PlatformSpawner : MonoBehaviour {
                 SpawnPlatByIndex(whichPlattoSpawn);
 
                 //Add distance by which platform can spawn
-                DistanceOffsetMaxAug += GameScore / 8;                       
+                if (DistanceOffsetMaxAug < 20)
+                {
+                    DistanceOffsetMaxAug += GameScore / 8;
+                }
+                                     
 
             }            
             
@@ -91,14 +95,14 @@ public class PlatformSpawner : MonoBehaviour {
                 break;
             case 1:
                 SpawnPlatType(MovingPlatform);
-                MovingPlatSpeed +=1;
+                MovingPlatSpeed += 0.5f;
                 break;
             case 2:
                 SpawnPlatType(BarrierPlatform);
                 break;
             case 3:
                 SpawnPlatType(BarrierMovingPlatform);
-                BarrierMovingPlatSpeed +=1;
+                BarrierMovingPlatSpeed += 0.5f;
                 break;
             default:
                 SpawnPlatType(Platform);
