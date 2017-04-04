@@ -6,7 +6,7 @@ public class DirectionForceController : MonoBehaviour {
     public float Speed;
     public float Angle_of_Forward_force;
     public bool bGrounded;
-    public GameObject Particles, Particles2, Particles3;
+    //public GameObject Particles, Particles2, Particles3;
     private Rigidbody Object_RB;
     private GameController GC;
 
@@ -47,9 +47,9 @@ public class DirectionForceController : MonoBehaviour {
             //if (bGrounded)
             //{
             Object_RB.AddForce(vForce * Speed);
-            Instantiate(Particles, transform.position, new Quaternion(0, 0, 0, 90));
-            Instantiate(Particles2, transform.position, new Quaternion(0, 0, 0, 90));
-            Instantiate(Particles3, transform.position, new Quaternion(0, 0, 0, 90));
+            //Instantiate(Particles, transform.position, new Quaternion(0, 0, 0, 90));
+            //Instantiate(Particles2, transform.position, new Quaternion(0, 0, 0, 90));
+            //Instantiate(Particles3, transform.position, new Quaternion(0, 0, 0, 90));
             bGrounded = false;
 
             //}
@@ -140,9 +140,9 @@ public class DirectionForceController : MonoBehaviour {
                     //if (bGrounded)
                     //{
                     Object_RB.AddForce(vForce * Speed);
-                    Instantiate(Particles, transform.position, new Quaternion(0, 0, 0, 90));
-                    Instantiate(Particles2, transform.position, new Quaternion(0, 0, 0, 90));
-                    Instantiate(Particles3, transform.position, new Quaternion(0, 0, 0, 90));
+                    //Instantiate(Particles, transform.position, new Quaternion(0, 0, 0, 90));
+                    //Instantiate(Particles2, transform.position, new Quaternion(0, 0, 0, 90));
+                    //Instantiate(Particles3, transform.position, new Quaternion(0, 0, 0, 90));
                     bGrounded = false;
 
                     //}
