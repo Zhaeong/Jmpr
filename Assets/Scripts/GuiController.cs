@@ -54,17 +54,10 @@ public class GuiController : MonoBehaviour {
         {
             GUI.Label(new Rect(0, 0, Screen.width, 100), string.Format("{0:N3}", "MovingPlat Speed: " + PC.MovingPlatSpeed), CustomGS.GetStyle("label"));
             GUI.Label(new Rect(0, 100, Screen.width, 100), string.Format("{0:N3}", "BarrierPlat Speed: " + PC.BarrierMovingPlatSpeed), CustomGS.GetStyle("label"));
-        }
-        
-
+        }  
 
         int Button_x_width = Screen.width / 2;
         int Button_y_width = Screen.height / 9;
-
-        //GUI.Label(new Rect(Button_x_width, Button_y_width, 100, 50), "dfdfdfdf");
-        
-
-
 
         if (!GC.GameStart && StartMenu)
         {
