@@ -82,8 +82,7 @@ public class GameController : MonoBehaviour {
             SendScoreObj personObj = new SendScoreObj(name, iScore - 1);
             string json = JsonUtility.ToJson(personObj);
             reference.Child("scores").Child(name).SetRawJsonValueAsync(json);
-        }
-        
+        }        
     }
 
     public void GetLeaderboard()
