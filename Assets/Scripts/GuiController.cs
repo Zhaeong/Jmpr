@@ -61,6 +61,10 @@ public class GuiController : MonoBehaviour {
 
         if (!GC.GameStart && StartMenu)
         {
+
+            GUI.Label(new Rect(0, 0, Screen.width, 60), "High Score: " + GC.GetDeviceHighScore(), CustomGS.GetStyle("label"));
+            GUI.Label(new Rect(0, 60, Screen.width, 60), "You Scored: " + (GC.getScore() -1), CustomGS.GetStyle("label"));
+
             if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width/2), Screen.height / 2, Button_x_width, Button_y_width), "Start", CustomGS.GetStyle("button")))
             {
                 Time.timeScale = 1;

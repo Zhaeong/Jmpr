@@ -52,6 +52,14 @@ public class GameController : MonoBehaviour {
     {
         GameStart = false;
         Time.timeScale = 0;
+
+        int DeviceHighScore = GetDeviceHighScore();
+        if (DeviceHighScore < iScore -1 )
+        {
+            PlayerPrefs.SetInt("DeviceHighScore", iScore - 1);
+        }       
+
+
     }
 
     public void resumeGame()
@@ -71,7 +79,7 @@ public class GameController : MonoBehaviour {
     {
         if (name != null)
         {
-            SendScoreObj personObj = new SendScoreObj(name, iScore);
+            SendScoreObj personObj = new SendScoreObj(name, iScore - 1);
             string json = JsonUtility.ToJson(personObj);
             reference.Child("scores").Child(name).SetRawJsonValueAsync(json);
         }
@@ -107,6 +115,19 @@ public class GameController : MonoBehaviour {
             //Debug.Log(personAlias + " --" + personScore);
         }
         GC.LeaderboardScores = SendScoreList;
+    }
+
+    public int GetDeviceHighScore()
+    {
+        if (PlayerPrefs.HasKey("DeviceHighScore"))
+        {
+            return PlayerPrefs.GetInt("DeviceHighScore");
+        }
+        else
+        {            
+            return 0;
+        }
+
     }
 
 
