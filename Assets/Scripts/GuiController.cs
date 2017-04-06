@@ -10,13 +10,18 @@ public class GuiController : MonoBehaviour {
     public GUISkin CustomGS;
     public bool DebugStats;
 
+    public Texture IcoSphereImg;
+    public Texture ColoredBallImg;
+
     private GameController GC;
 
     private PlatformSpawner PC;
 
-    private bool StartMenu, ScoreMenu, SubmitScoreMenu, LeaderboardMenu;
+    private bool StartMenu, ScoreMenu, SubmitScoreMenu, LeaderboardMenu, ProjectileMenu;
 
-    private string stringToEdit = "enter name";
+    
+
+private string stringToEdit = "enter name";
 
     private Vector2 scrollPosition = Vector2.zero;
 
@@ -28,6 +33,7 @@ public class GuiController : MonoBehaviour {
         PC = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>();
 
         StartMenu = true;
+        ProjectileMenu = false;
         ScoreMenu = false;
         SubmitScoreMenu = false;
         LeaderboardMenu = false;
@@ -72,12 +78,16 @@ public class GuiController : MonoBehaviour {
                 
             }
 
-            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + Button_y_width, Button_x_width, Button_y_width), "Scores", CustomGS.GetStyle("button")))
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + Button_y_width + 10, Button_x_width, Button_y_width), "Scores", CustomGS.GetStyle("button")))
             {
+
+                TurnOffEverything();
                 ScoreMenu = true;
-                StartMenu = false;
-                SubmitScoreMenu = false;
-                LeaderboardMenu = false;
+            }
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + (Button_y_width + 10) * 2, Button_x_width, Button_y_width), "Projectiles", CustomGS.GetStyle("button")))
+            {
+                TurnOffEverything();
+                ProjectileMenu = true;                
             }
 
         }
@@ -86,26 +96,20 @@ public class GuiController : MonoBehaviour {
         {        
             if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2, Button_x_width, Button_y_width), "Submit Score", CustomGS.GetStyle("button")))
             {
+                TurnOffEverything();
                 SubmitScoreMenu = true;
-                StartMenu = false;
-                ScoreMenu = false;
-                LeaderboardMenu = false;
-                
             }
 
-            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + Button_y_width, Button_x_width, Button_y_width), "Leaderboard", CustomGS.GetStyle("button")))
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + (Button_y_width + 10), Button_x_width, Button_y_width), "Leaderboard", CustomGS.GetStyle("button")))
             {
-                LeaderboardMenu = true;
-                ScoreMenu = false;
-                SubmitScoreMenu = false;
-                StartMenu = false;               
+                TurnOffEverything();
+                LeaderboardMenu = true;                             
             }
 
-            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + (Button_y_width *2), Button_x_width, Button_y_width), "Back", CustomGS.GetStyle("button")))
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + (Button_y_width + 10) * 2, Button_x_width, Button_y_width), "Back", CustomGS.GetStyle("button")))
             {
-                StartMenu = true;
-                ScoreMenu = false;
-                SubmitScoreMenu = false;
+                TurnOffEverything();
+                StartMenu = true;                
             }
 
         }
@@ -121,9 +125,8 @@ public class GuiController : MonoBehaviour {
 
             if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + (Button_y_width * 2) + 40, Button_x_width, Button_y_width), "Back", CustomGS.GetStyle("button")))
             {
-                ScoreMenu = true;
-                StartMenu = false;                
-                SubmitScoreMenu = false;
+                TurnOffEverything();
+                ScoreMenu = true;                
             }
         }
 
@@ -174,16 +177,77 @@ public class GuiController : MonoBehaviour {
 
             if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + 300, Button_x_width, Button_y_width), "Back", CustomGS.GetStyle("button")))
             {
-                ScoreMenu = true;
-                StartMenu = false;
-                SubmitScoreMenu = false;
-                LeaderboardMenu = false;
+                TurnOffEverything();
+                ScoreMenu = true;                
             }
+        }
+
+        if (ProjectileMenu)
+        {
+            int NumProjectiles = gameObject.transform.childCount;
+            float scrollwidth = Screen.width / 1.5f;
+            int scrollheight = Screen.height / 4;
+
+            float Screen_x_name_width = Screen.width / 2;
+            int Screen_x_name_height = Screen.height / 12;
+
+            int Screen_x_img_width = Screen.width / 8;
+
+            int Screen_x_name_posit = 0;
+            float Screen_x_score_posit = Screen_x_name_width + 10;
+
+            int Screen_y = 0;
+
+            scrollPosition = GUI.BeginScrollView(
+                    new Rect(Screen.width / 2 - (scrollwidth / 2), Screen.height / 2 - (scrollheight / 2), scrollwidth, scrollheight),
+                    scrollPosition,
+                    new Rect(0, 0, 400, Screen_x_img_width * NumProjectiles),
+                    false,
+                    true,
+                    CustomGS.GetStyle("horizontalscrollbar"),
+                    CustomGS.GetStyle("verticalscrollbar"));
+            
+            //IcoSphereBlock
+            GUI.DrawTexture(new Rect(Screen_x_name_posit, Screen_y, Screen_x_img_width, Screen_x_img_width), IcoSphereImg, ScaleMode.ScaleToFit, true);
+
+            if (GUI.Button(new Rect(Screen_x_name_posit + Screen_x_img_width, Screen_y, Screen_x_name_width, Screen_x_img_width), "Ico Sphere", CustomGS.GetStyle("button")))
+            {
+                GC.ChangePlayerModel("IcoSphere");
+            }
+
+
+            //ColoredBallImg
+            GUI.DrawTexture(new Rect(Screen_x_name_posit, Screen_y + (Screen_x_img_width + 10), Screen_x_img_width, Screen_x_img_width), ColoredBallImg, ScaleMode.ScaleToFit, true);
+            if (GUI.Button(new Rect(Screen_x_name_posit + Screen_x_img_width, Screen_y + Screen_x_img_width + 10, Screen_x_name_width, Screen_x_img_width), "ColoredBall", CustomGS.GetStyle("button")))
+            {
+                GC.ChangePlayerModel("ColSphere");
+            }
+
+
+            GUI.EndScrollView();
+
+
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_x_width / 2), Screen.height / 2 + (Button_y_width * 2), Button_x_width, Button_y_width), "Back", CustomGS.GetStyle("button")))
+            {
+                TurnOffEverything();
+                StartMenu = true;
+            }
+
         }
     }
 
     void StartGameFunc()
     {
         GC.resumeGame();        
+    }
+
+    void TurnOffEverything()
+    {
+        SubmitScoreMenu = false;
+        ProjectileMenu = false;
+        StartMenu = false;
+        ScoreMenu = false;
+        LeaderboardMenu = false;
+
     }
 }

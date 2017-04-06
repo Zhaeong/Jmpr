@@ -129,6 +129,24 @@ public class GameController : MonoBehaviour {
 
     }
 
+    public void ChangePlayerModel(string ModelName)
+    {
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            if (gameObject.transform.GetChild(i).transform.name == ModelName)
+            {
+                gameObject.transform.GetChild(i).tag = "IcoSphere";
+                gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().enabled = true;
+            }
+            else
+            {
+                gameObject.transform.GetChild(i).tag = "PlayerModel";
+                gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().enabled = false;
+            }
+            
+        }
+    }
+
 
 }
 
