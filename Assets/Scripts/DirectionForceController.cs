@@ -59,11 +59,11 @@ public class DirectionForceController : MonoBehaviour {
         {
             vEndVector = Input.mousePosition;
             float magnitude = Vector3.Distance(vStartVector, vEndVector);
-            GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
-            icoSphere.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitude;
+            //GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
+            gameObject.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitude;
             Vector3 vDirectionRot = vEndVector - vStartVector;
             Vector3 vForceRot = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirectionRot;
-            icoSphere.GetComponent<RotationByMagnitude>().rotationAngle = vForceRot;
+            gameObject.GetComponent<RotationByMagnitude>().rotationAngle = vForceRot;
 
         }
     }
@@ -115,21 +115,21 @@ public class DirectionForceController : MonoBehaviour {
                     //print("Touch index " + touch.fingerId + " has moved by " + touch.deltaPosition);
                     vEndVector = Input.mousePosition;
                     float magnitude = Vector3.Distance(vStartVector, vEndVector);
-                    GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
-                    icoSphere.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitude;
+                    //GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
+                    gameObject.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitude;
                     Vector3 vDirectionRot = vEndVector - vStartVector;
                     Vector3 vForceRot = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirectionRot;
-                    icoSphere.GetComponent<RotationByMagnitude>().rotationAngle = vForceRot;
+                    gameObject.GetComponent<RotationByMagnitude>().rotationAngle = vForceRot;
                     break;
                 case TouchPhase.Stationary:
                     //print("Touch index " + touch.fingerId + " is stationary at position " + touch.position);
                     vEndVector = Input.mousePosition;
                     float magnitudeSta = Vector3.Distance(vStartVector, vEndVector);
-                    GameObject icoSphereSta = GameObject.FindGameObjectWithTag("IcoSphere");
-                    icoSphereSta.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitudeSta;
+                    //GameObject icoSphereSta = GameObject.FindGameObjectWithTag("IcoSphere");
+                    gameObject.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitudeSta;
                     Vector3 vDirectionRotSta = vEndVector - vStartVector;
                     Vector3 vForceRotSta = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirectionRotSta;
-                    icoSphereSta.GetComponent<RotationByMagnitude>().rotationAngle = vForceRotSta;
+                    gameObject.GetComponent<RotationByMagnitude>().rotationAngle = vForceRotSta;
                     break;
                 case TouchPhase.Ended:
                     //print("Touch index " + touch.fingerId + " ended at position " + touch.position);
