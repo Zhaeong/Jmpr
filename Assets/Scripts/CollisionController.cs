@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class CollisionController : MonoBehaviour {
 
-    GameController GC;
+    public GameObject Particles;
+
+    private GameController GC;
     // Use this for initialization
     void Start () {
         GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>();
@@ -18,6 +20,9 @@ public class CollisionController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        //Instantiate partiles
+        Instantiate(Particles, new Vector3(GC.transform.position.x, GC.transform.position.y, GC.transform.position.z), Quaternion.Euler(-90, 0, 0));
+
         //Remove the sphere spin
         other.GetComponent<Rigidbody>().velocity = Vector3.zero;
         other.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;

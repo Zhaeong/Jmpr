@@ -79,14 +79,26 @@ public class GameController : MonoBehaviour {
     {
         if (name != null)
         {
+            GC.showMessage = true;
+            GC.MsgPrompt = "Submitting Scores";
             SendScoreObj personObj = new SendScoreObj(name, iScore - 1);
             string json = JsonUtility.ToJson(personObj);
             reference.Child("scores").Child(name).SetRawJsonValueAsync(json);
+
+            GC.MsgPrompt = "Score Submitted";
+
+            Invoke("TurnMsgOff", 3.0f);
+
+
+            
         }        
     }
 
     public void GetLeaderboard()
     {
+        GC.showMessage = true;
+        GC.MsgPrompt = "Loading Leaderboard";
+
         FirebaseDatabase.DefaultInstance
                 .GetReference("scores").OrderByChild("Score")
                 .ValueChanged += HandleValueChanged;
@@ -97,9 +109,14 @@ public class GameController : MonoBehaviour {
         if (args.DatabaseError != null)
         {
             Debug.LogError(args.DatabaseError.Message);
+
+            GC.showMessage = true;
+            GC.MsgPrompt = args.DatabaseError.Message;
+            Invoke("TurnMsgOff", 3.0f);
             return;
         }
         // Do something with the data in args.Snapshot
+        
 
         DataSnapshot snapshot = args.Snapshot;
         ArrayList SendScoreList = new ArrayList();
@@ -145,6 +162,11 @@ public class GameController : MonoBehaviour {
             }
             
         }
+    }
+
+    void TurnMsgOff()
+    {
+        GC.showMessage = false;
     }
 
 

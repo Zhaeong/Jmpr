@@ -10,6 +10,10 @@ public class GuiController : MonoBehaviour {
     public GUISkin CustomGS;
     public bool DebugStats;
 
+    //Messages
+    public bool showMessage;
+    public string MsgPrompt;
+
     public Texture IcoSphereImg;
     public Texture ColoredBallImg;
 
@@ -60,10 +64,17 @@ private string stringToEdit = "enter name";
         {
             GUI.Label(new Rect(0, 0, Screen.width, 100), string.Format("{0:N3}", "MovingPlat Speed: " + PC.MovingPlatSpeed), CustomGS.GetStyle("label"));
             GUI.Label(new Rect(0, 100, Screen.width, 100), string.Format("{0:N3}", "BarrierPlat Speed: " + PC.BarrierMovingPlatSpeed), CustomGS.GetStyle("label"));
-        }  
+        }
+
+       
 
         int Button_x_width = Screen.width / 2;
         int Button_y_width = Screen.height / 9;
+
+        if (showMessage)
+        {
+            GUI.Label(new Rect(0, Screen.height / 2 - (Screen.height / 4 / 2) - 110, Screen.width, 100), MsgPrompt, CustomGS.GetStyle("MsgText"));
+        }
 
         if (!GC.GameStart && StartMenu)
         {
@@ -146,7 +157,8 @@ private string stringToEdit = "enter name";
             int Screen_y = 0;
             
             if (LeaderboardScores != null)
-            {           
+            {
+                showMessage = false;
                 int numScores = LeaderboardScores.Count;
 
                 float scrollwidth = Screen.width / 1.5f;
@@ -185,7 +197,7 @@ private string stringToEdit = "enter name";
         if (ProjectileMenu)
         {
             int NumProjectiles = gameObject.transform.childCount;
-            float scrollwidth = Screen.width / 1.5f;
+            float scrollwidth = Screen.width / 1.2f;
             int scrollheight = Screen.height / 4;
 
             float Screen_x_name_width = Screen.width / 2;
@@ -215,12 +227,23 @@ private string stringToEdit = "enter name";
                 GC.ChangePlayerModel("IcoSphere");
             }
 
+            if (GUI.Button(new Rect(Screen_x_name_posit + Screen_x_img_width + Screen_x_name_width, Screen_y, Screen_x_name_width, Screen_x_img_width), "Unlocked", CustomGS.GetStyle("UnlockModelButton")))
+            {
+
+            }
+
+
 
             //ColoredBallImg
             GUI.DrawTexture(new Rect(Screen_x_name_posit, Screen_y + (Screen_x_img_width + 10), Screen_x_img_width, Screen_x_img_width), ColoredBallImg, ScaleMode.ScaleToFit, true);
             if (GUI.Button(new Rect(Screen_x_name_posit + Screen_x_img_width, Screen_y + Screen_x_img_width + 10, Screen_x_name_width, Screen_x_img_width), "ColoredBall", CustomGS.GetStyle("button")))
             {
                 GC.ChangePlayerModel("ColSphere");
+            }
+
+            if (GUI.Button(new Rect(Screen_x_name_posit + Screen_x_img_width + Screen_x_name_width, Screen_y + Screen_x_img_width + 10, Screen_x_name_width, Screen_x_img_width), "50", CustomGS.GetStyle("UnlockModelButton")))
+            {
+
             }
 
 
