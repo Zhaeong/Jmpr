@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour {
     public bool SpawnPlatform;
     public bool GameStart;
 
+    
+
     private PlatformSpawner PS;
     private GuiController GC;
     private BackgroundSpawnerController BSC;
@@ -33,6 +35,10 @@ public class GameController : MonoBehaviour {
         PS = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>();
         GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GuiController>();
         BSC = GameObject.FindGameObjectWithTag("BackgroundSpawner").GetComponent<BackgroundSpawnerController>();
+
+        
+
+        
     }
 	
 	// Update is called once per frame
@@ -57,9 +63,17 @@ public class GameController : MonoBehaviour {
         if (DeviceHighScore < iScore -1 )
         {
             PlayerPrefs.SetInt("DeviceHighScore", iScore - 1);
-        }       
+        }
 
-
+        if (PlayerPrefs.HasKey("DeviceScorePouch"))
+        {
+            int ScorePouch = PlayerPrefs.GetInt("DeviceScorePouch");
+            PlayerPrefs.SetInt("DeviceScorePouch", ScorePouch +=iScore - 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("DeviceScorePouch", iScore - 1);
+        }
     }
 
     public void resumeGame()
@@ -85,12 +99,7 @@ public class GameController : MonoBehaviour {
             string json = JsonUtility.ToJson(personObj);
             reference.Child("scores").Child(name).SetRawJsonValueAsync(json);
 
-            GC.MsgPrompt = "Score Submitted";
-
-            Invoke("TurnMsgOff", 3.0f);
-
-
-            
+            GC.SetShortMessage("Score Submitted", 3);            
         }        
     }
 
@@ -112,7 +121,7 @@ public class GameController : MonoBehaviour {
 
             GC.showMessage = true;
             GC.MsgPrompt = args.DatabaseError.Message;
-            Invoke("TurnMsgOff", 3.0f);
+            
             return;
         }
         // Do something with the data in args.Snapshot
@@ -162,11 +171,33 @@ public class GameController : MonoBehaviour {
             }
             
         }
-    }
+    }    
 
-    void TurnMsgOff()
+    public bool PurchaseProjectile(string projectile, int cost)
     {
-        GC.showMessage = false;
+        if (PlayerPrefs.HasKey("DeviceScorePouch"))
+        {
+            int DevicePouch = PlayerPrefs.GetInt("DeviceScorePouch");
+
+            if (DevicePouch >= cost)
+            {
+                PlayerPrefs.SetInt(projectile, 1);
+                PlayerPrefs.SetInt("DeviceScorePouch", DevicePouch -= cost);
+                GC.SetShortMessage("Projectile Purchased", 2);
+                ChangePlayerModel(projectile);
+                return true;
+            }
+            else
+            {
+                GC.SetShortMessage("Not enough points", 2);
+                return false;
+            }
+        }
+        else
+        {
+            GC.SetShortMessage("Not enough points", 2);
+            return false;
+        }
     }
 
 
