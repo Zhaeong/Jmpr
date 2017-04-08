@@ -64,9 +64,7 @@ private string stringToEdit = "enter name";
         {
             GUI.Label(new Rect(0, 0, Screen.width, 100), string.Format("{0:N3}", "MovingPlat Speed: " + PC.MovingPlatSpeed), CustomGS.GetStyle("label"));
             GUI.Label(new Rect(0, 100, Screen.width, 100), string.Format("{0:N3}", "BarrierPlat Speed: " + PC.BarrierMovingPlatSpeed), CustomGS.GetStyle("label"));
-        }
-
-       
+        }       
 
         int Button_x_width = Screen.width / 2;
         int Button_y_width = Screen.height / 9;
@@ -229,10 +227,8 @@ private string stringToEdit = "enter name";
 
             if (GUI.Button(new Rect(Screen_x_name_posit + Screen_x_img_width + Screen_x_name_width, Screen_y, Screen_x_name_width, Screen_x_img_width), "Unlocked", CustomGS.GetStyle("UnlockModelButton")))
             {
-
+                //Unlock Ball if score match and deduct from total
             }
-
-
 
             //ColoredBallImg
             GUI.DrawTexture(new Rect(Screen_x_name_posit, Screen_y + (Screen_x_img_width + 10), Screen_x_img_width, Screen_x_img_width), ColoredBallImg, ScaleMode.ScaleToFit, true);
