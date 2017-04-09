@@ -238,7 +238,6 @@ public class GuiController : MonoBehaviour {
 
             int Screen_img_width = Screen.width / 8;
 
-            int Screen_x_name_posit = 0;
             float Screen_x_score_posit = Screen_x_name_width + 10;
 
             int Screen_y = 0;
@@ -253,134 +252,15 @@ public class GuiController : MonoBehaviour {
                     CustomGS.GetStyle("verticalscrollbar"));
 
             //IcoSphereBlock
-            if (PlayerPrefs.HasKey("IcoSphere"))
-            {
-                string IcoSphere = "Ico Sphere";
-
-                int projPrice = 0;
-                string priceString = "";
-
-                GUI.DrawTexture(new Rect(Screen_x_name_posit, Screen_y, Screen_img_width, Screen_img_width), IcoSphereImg, ScaleMode.ScaleToFit, true);
-
-                if (GUI.Button(new Rect(Screen_x_name_posit + Screen_img_width, Screen_y, Screen_x_name_width, Screen_img_width), IcoSphere, CustomGS.GetStyle("button")))
-                {
-                    if (PlayerPrefs.GetInt("IcoSphere") == 1)
-                    {
-                        GC.ChangePlayerModel("IcoSphere");
-                        SetShortMessage("Changed to IcoSphere", 2);                        
-                    }
-                    else
-                    {
-                        priceString = projPrice.ToString();
-                        itemLabel = IcoSphere;
-                        itemToPurchase = "IcoSphere";
-
-                        itemImg = IcoSphereImg;
-                        itemPrice = 0;
-
-                        TurnOffEverything();
-                        PurchasingMenu = true;
-                    }
-                }
-
-                if (PlayerPrefs.GetInt("IcoSphere") == 0)
-                {
-                    priceString = projPrice.ToString();
-                }
-                GUI.Label(new Rect(Screen_x_name_posit + Screen_img_width + Screen_x_name_width, Screen_y, Screen_x_name_width, Screen_img_width), priceString, CustomGS.GetStyle("UnlockModelButton"));
-            }
-            else
-            {
-                PlayerPrefs.SetInt("IcoSphere", 1);
-            }
+            AddProjectile("IcoSphere", "Ico Sphere", IcoSphereImg, 0, Screen_y);
 
             //ColoredBallImg
             Screen_y = Screen_y + Screen_img_width + 10;
-            string ColSphereKey = "ColoredSphere";
-            if (PlayerPrefs.HasKey(ColSphereKey))
-            {
-                string ColSphere = "Colored Ball";
-
-                int projPrice = 20;
-                string priceString = "";
-
-                GUI.DrawTexture(new Rect(Screen_x_name_posit, Screen_y, Screen_img_width, Screen_img_width), ColoredBallImg, ScaleMode.ScaleToFit, true);
-                if (GUI.Button(new Rect(Screen_x_name_posit + Screen_img_width, Screen_y, Screen_x_name_width, Screen_img_width), ColSphere, CustomGS.GetStyle("button")))
-                {
-               
-                    if (PlayerPrefs.GetInt(ColSphereKey) == 1)
-                    {
-                        GC.ChangePlayerModel(ColSphereKey);
-                        SetShortMessage("Changed to Colored Sphere", 2);
-                    }
-                    else
-                    {  
-                        itemLabel = ColSphere;
-                        itemToPurchase = ColSphereKey;
-                        itemImg = ColoredBallImg;
-                        itemPrice = projPrice;
-                        TurnOffEverything();
-                        PurchasingMenu = true;
-                    }
-                }
-
-                if (PlayerPrefs.GetInt(ColSphereKey) == 0)
-                {
-                    priceString = projPrice.ToString();
-                }
-
-                GUI.Label(new Rect(Screen_x_name_posit + Screen_img_width + Screen_x_name_width, Screen_y, Screen_x_name_width, Screen_img_width), priceString, CustomGS.GetStyle("UnlockModelButton"));                
-            }
-            else
-            {
-                PlayerPrefs.SetInt(ColSphereKey, 0);
-            }
+            AddProjectile("ColoredSphere", "Colored Ball", ColoredBallImg, 50, Screen_y);
 
             //Spike Sphere
             Screen_y = Screen_y + Screen_img_width + 10;
-            string SpikeSphereKey = "SpikedSphere";
-            string SpikeSphereName = "Spiked Sphere";
-
-            if (PlayerPrefs.HasKey(SpikeSphereKey))
-            {
-
-                int projPrice = 50;
-                string priceString = "";
-
-                GUI.DrawTexture(new Rect(Screen_x_name_posit, Screen_y, Screen_img_width, Screen_img_width), SpikedSphereImg, ScaleMode.ScaleToFit, true);
-                if (GUI.Button(new Rect(Screen_x_name_posit + Screen_img_width, Screen_y, Screen_x_name_width, Screen_img_width), SpikeSphereName, CustomGS.GetStyle("button")))
-                {
-
-                    if (PlayerPrefs.GetInt(SpikeSphereKey) == 1)
-                    {
-                        GC.ChangePlayerModel(SpikeSphereKey);
-                        SetShortMessage("Changed to Spiked Sphere", 2);
-                    }
-                    else
-                    {
-                        itemLabel = SpikeSphereName;
-                        itemToPurchase = SpikeSphereKey;
-                        itemImg = SpikedSphereImg;
-                        itemPrice = projPrice;
-                        TurnOffEverything();
-                        PurchasingMenu = true;
-                    }
-                }
-
-                if (PlayerPrefs.GetInt(SpikeSphereKey) == 0)
-                {
-                    priceString = projPrice.ToString();
-                }
-
-                GUI.Label(new Rect(Screen_x_name_posit + Screen_img_width + Screen_x_name_width, Screen_y, Screen_x_name_width, Screen_img_width), priceString, CustomGS.GetStyle("UnlockModelButton"));
-            }
-            else
-            {
-                PlayerPrefs.SetInt(SpikeSphereKey, 0);
-            }
-
-
-
+            AddProjectile("SpikedSphere", "Spiked Sphere", SpikedSphereImg, 100, Screen_y);
 
             GUI.EndScrollView();
 
@@ -447,5 +327,55 @@ public class GuiController : MonoBehaviour {
     void MsgOff()
     {
         showMessage = false;
+    }
+
+    //
+    private void AddProjectile(string ProjectileKey, string ProjectileName, Texture ProjectileImg, int ProjectileCost, float screen_y)
+    {
+
+        float Screen_x_name_width = Screen.width / 2;
+        int Screen_x_name_height = Screen.height / 12;
+
+        int Screen_img_width = Screen.width / 8;
+
+        int Screen_x_name_posit = 0;
+
+        if (PlayerPrefs.HasKey(ProjectileKey))
+        {
+            string priceString = "";
+
+            GUI.DrawTexture(new Rect(Screen_x_name_posit, screen_y, Screen_img_width, Screen_img_width), ProjectileImg, ScaleMode.ScaleToFit, true);
+            if (GUI.Button(new Rect(Screen_x_name_posit + Screen_img_width, screen_y, Screen_x_name_width, Screen_img_width), ProjectileName, CustomGS.GetStyle("button")))
+            {
+
+                if (PlayerPrefs.GetInt(ProjectileKey) == 1)
+                {
+                    GC.ChangePlayerModel(ProjectileKey);
+                    SetShortMessage("Changed to " + ProjectileName, 2);
+                }
+                else
+                {
+                    itemLabel = ProjectileName;
+                    itemToPurchase = ProjectileKey;
+                    itemImg = ProjectileImg;
+                    itemPrice = ProjectileCost;
+                    TurnOffEverything();
+                    PurchasingMenu = true;
+                }
+            }
+
+            if (PlayerPrefs.GetInt(ProjectileKey) == 0)
+            {
+                priceString = ProjectileCost.ToString();
+            }
+
+            GUI.Label(new Rect(Screen_x_name_posit + Screen_img_width + Screen_x_name_width, screen_y, Screen_x_name_width, Screen_img_width), priceString, CustomGS.GetStyle("UnlockModelButton"));
+        }
+        else
+        {
+            PlayerPrefs.SetInt(ProjectileKey, 0);
+        }
+
+
     }
 }
