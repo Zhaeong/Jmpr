@@ -38,7 +38,6 @@ public class DirectionForceController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             vStartVector = Input.mousePosition;
-
         }
         else if (Input.GetMouseButtonUp(0))
         {

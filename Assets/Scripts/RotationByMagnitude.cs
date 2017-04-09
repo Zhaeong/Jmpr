@@ -21,8 +21,6 @@ public class RotationByMagnitude : MonoBehaviour {
 	void Update () {
         GameObject Sphere = GameObject.FindGameObjectWithTag("IcoSphere");
 
-
-
         Sphere.transform.rotation = Quaternion.Euler(rotationAngle.y / Grounded_rotation_damping, 0, -rotationAngle.x / Grounded_rotation_damping);
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
