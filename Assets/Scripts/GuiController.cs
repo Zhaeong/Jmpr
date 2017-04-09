@@ -22,6 +22,7 @@ public class GuiController : MonoBehaviour {
     public Texture IcoSphereImg;
     public Texture ColoredBallImg;
     public Texture SpikedSphereImg;
+    public Texture AppleImg;
 
     private GameController GC;
 
@@ -128,7 +129,7 @@ public class GuiController : MonoBehaviour {
                 TurnOffEverything();
                 ScoreMenu = true;
             }
-            if (GUI.Button(new Rect(Screen.width / 2 - (Button_width / 2), Screen.height / 2 + (Button_height + 10) * 2, Button_width, Button_height), "Projectiles", CustomGS.GetStyle("button")))
+            if (GUI.Button(new Rect(Screen.width / 2 - (Button_width / 2), Screen.height / 2 + (Button_height + 10) * 2, Button_width, Button_height), "Characters", CustomGS.GetStyle("button")))
             {
                 TurnOffEverything();
                 ProjectileMenu = true;                
@@ -245,25 +246,28 @@ public class GuiController : MonoBehaviour {
             scrollPosition = GUI.BeginScrollView(
                     new Rect(Screen.width / 2 - (scrollwidth / 2), Screen.height / 2 - (scrollheight / 2), scrollwidth, scrollheight),
                     scrollPosition,
-                    new Rect(0, 0, 400, Screen_img_width * NumProjectiles),
+                    new Rect(0, 0, 400, (Screen_img_width + 10) * NumProjectiles),
                     false,
                     true,
                     CustomGS.GetStyle("horizontalscrollbar"),
                     CustomGS.GetStyle("verticalscrollbar"));
 
             //IcoSphereBlock
-            AddProjectile("IcoSphere", "Ico Sphere", IcoSphereImg, 0, Screen_y);
+            AddProjectile("IcoSphere", "Ico ", IcoSphereImg, 0, Screen_y);
 
             //ColoredBallImg
             Screen_y = Screen_y + Screen_img_width + 10;
-            AddProjectile("ColoredSphere", "Colored Ball", ColoredBallImg, 50, Screen_y);
+            AddProjectile("ColoredSphere", "Colorful", ColoredBallImg, 50, Screen_y);
 
             //Spike Sphere
             Screen_y = Screen_y + Screen_img_width + 10;
-            AddProjectile("SpikedSphere", "Spiked Sphere", SpikedSphereImg, 100, Screen_y);
+            AddProjectile("SpikedSphere", "Spiked", SpikedSphereImg, 100, Screen_y);
+
+            //Apple
+            Screen_y = Screen_y + Screen_img_width + 10;
+            AddProjectile("Apple", "Apple", AppleImg, 500, Screen_y);            
 
             GUI.EndScrollView();
-
 
             if (GUI.Button(new Rect(Screen.width / 2 - (Button_width / 2), Screen.height / 2 + (Button_height * 2), Button_width, Button_height), "Back", CustomGS.GetStyle("button")))
             {
@@ -373,7 +377,15 @@ public class GuiController : MonoBehaviour {
         }
         else
         {
-            PlayerPrefs.SetInt(ProjectileKey, 0);
+            if (ProjectileKey == "IcoSphere")
+            {
+                PlayerPrefs.SetInt(ProjectileKey, 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt(ProjectileKey, 0);
+            }
+            
         }
 
 

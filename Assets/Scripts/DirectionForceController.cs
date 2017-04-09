@@ -38,6 +38,7 @@ public class DirectionForceController : MonoBehaviour {
         if (Input.GetMouseButtonDown(0))
         {
             vStartVector = Input.mousePosition;
+
         }
         else if (Input.GetMouseButtonUp(0))
         {
@@ -59,6 +60,7 @@ public class DirectionForceController : MonoBehaviour {
             Vector3 vDirectionRot = vEndVector - vStartVector;
             Vector3 vForceRot = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirectionRot;
             gameObject.GetComponent<RotationByMagnitude>().rotationAngle = vForceRot;
+
 
         }
     }

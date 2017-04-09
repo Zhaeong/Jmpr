@@ -7,6 +7,8 @@ public class CollisionController : MonoBehaviour {
     public GameObject Particles;
 
     private GameController GC;
+
+    private Quaternion CollisionRotation;
     // Use this for initialization
     void Start () {
         GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>();
@@ -27,7 +29,8 @@ public class CollisionController : MonoBehaviour {
         other.GetComponent<Rigidbody>().velocity = Vector3.zero;
         other.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
-        icoSphere.transform.rotation = Quaternion.Euler(0, 0, 0);
+        //icoSphere.transform.rotation = Quaternion.Euler(0, 0, 0);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<RotationByMagnitude>().rotationAngle = Vector3.zero;
 
         //indicate ground so that new spin can be applied
         other.GetComponent<DirectionForceController>().bGrounded = true;
