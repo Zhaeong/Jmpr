@@ -6,7 +6,6 @@ public class DirectionForceController : MonoBehaviour {
     public float Speed;
     public float Angle_of_Forward_force;
     public bool bGrounded;
-    //public GameObject Particles, Particles2, Particles3;
     private Rigidbody Object_RB;
     private GameController GC;
 
@@ -47,15 +46,11 @@ public class DirectionForceController : MonoBehaviour {
 
             Object_RB.AddForce(vForce * Speed);
             bGrounded = false;
-
-
         }
         else if (Input.GetMouseButton(0)) //mouse held down
         {
             vEndVector = Input.mousePosition;
             float magnitude = Vector3.Distance(vStartVector, vEndVector);
-            //GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
-            //gameObject.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitude;
             Vector3 vDirectionRot = vEndVector - vStartVector;
             Vector3 vForceRot = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirectionRot;
             gameObject.GetComponent<RotationByMagnitude>().rotationAngle = vForceRot;
@@ -81,8 +76,6 @@ public class DirectionForceController : MonoBehaviour {
                 case TouchPhase.Moved:
                     vEndVector = Input.mousePosition;
                     float magnitude = Vector3.Distance(vStartVector, vEndVector);
-                    //GameObject icoSphere = GameObject.FindGameObjectWithTag("IcoSphere");
-                    //gameObject.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitude;
                     Vector3 vDirectionRot = vEndVector - vStartVector;
                     Vector3 vForceRot = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirectionRot;
                     gameObject.GetComponent<RotationByMagnitude>().rotationAngle = vForceRot;
@@ -90,8 +83,6 @@ public class DirectionForceController : MonoBehaviour {
                 case TouchPhase.Stationary:
                     vEndVector = Input.mousePosition;
                     float magnitudeSta = Vector3.Distance(vStartVector, vEndVector);
-                    //GameObject icoSphereSta = GameObject.FindGameObjectWithTag("IcoSphere");
-                    //gameObject.GetComponent<RotationByMagnitude>().MagnitudeofVelocity = magnitudeSta;
                     Vector3 vDirectionRotSta = vEndVector - vStartVector;
                     Vector3 vForceRotSta = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirectionRotSta;
                     gameObject.GetComponent<RotationByMagnitude>().rotationAngle = vForceRotSta;
