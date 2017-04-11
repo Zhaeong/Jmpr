@@ -48,16 +48,21 @@ public class CollisionController : MonoBehaviour {
         //Moving Platform handler
 
         string tag = gameObject.tag;
-        if (gameObject.tag == "MovingPlatform" || gameObject.tag == "BarrierMovingPlatform")
+        if (gameObject.tag == "MovingPlatform" || gameObject.tag == "BarrierMovingPlatform" || gameObject.tag == "ShrinkingMovingPlatform")
         {
             gameObject.GetComponent<MovementPlatformController>().isPlayerOn = true;
+        }
+
+        if (gameObject.tag == "MovingBarrierPlatform")
+        {
+            gameObject.GetComponent<MovingBarrierController>().isPlayerOn = true;
         }
 
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (gameObject.tag == "MovingPlatform")
+        if (gameObject.tag == "MovingPlatform" || gameObject.tag == "BarrierMovingPlatform" || gameObject.tag == "ShrinkingMovingPlatform")
         {
             GameObject PlatParent = gameObject.transform.parent.gameObject;            
             Destroy(PlatParent);

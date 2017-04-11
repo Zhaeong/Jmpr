@@ -51,12 +51,6 @@ public class MovementPlatformController : MonoBehaviour {
                     moveRight = true;
                 }
             }
-
         }
-
-
-       
-        
-
     }
 }

@@ -21,16 +21,23 @@ public class RotationByMagnitude : MonoBehaviour {
 	void Update () {
         GameObject Sphere = GameObject.FindGameObjectWithTag("IcoSphere");
 
-        Sphere.transform.rotation = Quaternion.Euler(rotationAngle.y / Grounded_rotation_damping, 0, -rotationAngle.x / Grounded_rotation_damping);
+        
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         //In air rotation after button released
         if (!player.GetComponent<DirectionForceController>().bGrounded)
         {
+            //Sphere.transform.Rotate(y_rot += rotationAngle.y / In_air_rotation_damping, 0, x_rot -= rotationAngle.x / In_air_rotation_damping);
 
-            Sphere.transform.Rotate(y_rot += rotationAngle.y / In_air_rotation_damping, 0, x_rot -= rotationAngle.x / In_air_rotation_damping);
+            Sphere.transform.rotation = Quaternion.Euler(y_rot += rotationAngle.y / In_air_rotation_damping, 0, x_rot -= rotationAngle.x / In_air_rotation_damping);
             //Debug.Log(rotationAngle);
+        }
+        else
+        {
+            Sphere.transform.rotation = Quaternion.Euler(rotationAngle.y / Grounded_rotation_damping, 0, -rotationAngle.x / Grounded_rotation_damping);
+            y_rot = rotationAngle.y;
+            x_rot = rotationAngle.x;
         }
         
     }

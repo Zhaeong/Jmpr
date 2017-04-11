@@ -11,6 +11,8 @@ public class PlatformSpawner : MonoBehaviour {
     public GameObject MovingPlatform;
     public GameObject BarrierPlatform;
     public GameObject BarrierMovingPlatform;
+    public GameObject MovingBarrierPlatform;
+
 
 
     public float DistanceOffsetMin, DistanceOffsetMax;
@@ -19,7 +21,7 @@ public class PlatformSpawner : MonoBehaviour {
 
     private Vector3 PlayerStartingPosit;
 
-    public float MovingPlatSpeed, BarrierMovingPlatSpeed;
+    public float MovingPlatSpeed, BarrierMovingPlatSpeed, MovingBarrierSpeed;
 
     public bool SpawnPlatform;
 
@@ -33,6 +35,7 @@ public class PlatformSpawner : MonoBehaviour {
         SpawnPlatform = false;
         MovingPlatSpeed = 2;
         BarrierMovingPlatSpeed = 2;
+        MovingBarrierSpeed = 2;
         RangesAvailSpawn = 1;
 
         DistanceOffsetMaxAug = DistanceOffsetMax;
@@ -50,8 +53,6 @@ public class PlatformSpawner : MonoBehaviour {
             float DistanceOffset = Random.Range(DistanceOffsetMin, DistanceOffsetMaxAug);
             transform.position = new Vector3(PlayerChar.transform.position.x, 0, PlayerChar.transform.position.z + DistanceOffset);
 
-
-
             if (GameScore == 3)
             {
                 RangesAvailSpawn += 1;
@@ -62,10 +63,20 @@ public class PlatformSpawner : MonoBehaviour {
                 RangesAvailSpawn += 1;
                 SpawnPlatByIndex(2);
             }
-            else if (GameScore == 20)
+            else if (GameScore == 15)
             {
                 RangesAvailSpawn += 1;
                 SpawnPlatByIndex(3);
+            }
+            else if (GameScore == 20)
+            {
+                RangesAvailSpawn += 1;
+                SpawnPlatByIndex(4);
+            }
+            else if (GameScore == 25)
+            {
+                RangesAvailSpawn += 1;
+                SpawnPlatByIndex(5);
             }
             else
             {
@@ -78,8 +89,6 @@ public class PlatformSpawner : MonoBehaviour {
                 {
                     DistanceOffsetMaxAug += GameScore / 8;
                 }
-                                     
-
             }            
             
         } 
@@ -95,14 +104,28 @@ public class PlatformSpawner : MonoBehaviour {
                 break;
             case 1:
                 SpawnPlatType(MovingPlatform);
-                MovingPlatSpeed += 0.5f;
+                if (MovingPlatSpeed < 20)
+                {
+                    MovingPlatSpeed += 0.5f;
+                }
+                
                 break;
             case 2:
                 SpawnPlatType(BarrierPlatform);
                 break;
             case 3:
                 SpawnPlatType(BarrierMovingPlatform);
-                BarrierMovingPlatSpeed += 0.5f;
+                if (BarrierMovingPlatSpeed < 20)
+                {
+                    BarrierMovingPlatSpeed += 0.5f;
+                }                
+                break;
+            case 4:
+                SpawnPlatType(MovingBarrierPlatform);
+                if (MovingBarrierSpeed < 20)
+                {
+                    MovingBarrierSpeed += 0.5f;
+                }                
                 break;
             default:
                 SpawnPlatType(Platform);
