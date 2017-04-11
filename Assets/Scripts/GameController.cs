@@ -34,10 +34,7 @@ public class GameController : MonoBehaviour {
 
         PS = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>();
         GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GuiController>();
-        BSC = GameObject.FindGameObjectWithTag("BackgroundSpawner").GetComponent<BackgroundSpawnerController>();
-
-        
-
+        BSC = GameObject.FindGameObjectWithTag("BackgroundSpawner").GetComponent<BackgroundSpawnerController>();   
         
     }
 	
