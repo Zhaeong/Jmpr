@@ -62,6 +62,7 @@ public class CollisionController : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
+        Instantiate(Particles, new Vector3(GC.transform.position.x, GC.transform.position.y, GC.transform.position.z), Quaternion.Euler(-90, 0, 0));
         if (gameObject.tag == "MovingPlatform" || gameObject.tag == "BarrierMovingPlatform" || gameObject.tag == "ShrinkingMovingPlatform")
         {
             GameObject PlatParent = gameObject.transform.parent.gameObject;            
