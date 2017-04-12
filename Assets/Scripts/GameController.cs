@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
     public bool SpawnPlatform;
     public bool GameStart;
 
-    
+    public string UserId;
 
     private PlatformSpawner PS;
     private GuiController GC;
@@ -34,7 +34,9 @@ public class GameController : MonoBehaviour {
 
         PS = GameObject.FindGameObjectWithTag("PlatformSpawner").GetComponent<PlatformSpawner>();
         GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GuiController>();
-        BSC = GameObject.FindGameObjectWithTag("BackgroundSpawner").GetComponent<BackgroundSpawnerController>();   
+        BSC = GameObject.FindGameObjectWithTag("BackgroundSpawner").GetComponent<BackgroundSpawnerController>();
+
+        GenerateUserId();
         
     }
 	
@@ -92,9 +94,9 @@ public class GameController : MonoBehaviour {
         {
             GC.showMessage = true;
             GC.MsgPrompt = "Submitting Scores";
-            SendScoreObj personObj = new SendScoreObj(name, iScore - 1);
+            SendScoreObj personObj = new SendScoreObj(UserId, name, iScore - 1);
             string json = JsonUtility.ToJson(personObj);
-            reference.Child("scores").Child(name).SetRawJsonValueAsync(json);
+            reference.Child("scores").Child(UserId).SetRawJsonValueAsync(json);
 
             GC.SetShortMessage("Score Submitted", 3);            
         }        
@@ -131,7 +133,7 @@ public class GameController : MonoBehaviour {
             string personAlias = child.Child("PersonAlias").Value.ToString();
             string personScore = child.Child("Score").Value.ToString();
 
-            SendScoreObj person = new SendScoreObj(personAlias, int.Parse(personScore));
+            SendScoreObj person = new SendScoreObj(UserId, personAlias, int.Parse(personScore));
             SendScoreList.Add(person);
 
             //Debug.Log(personAlias + " --" + personScore);
@@ -195,6 +197,22 @@ public class GameController : MonoBehaviour {
             GC.SetShortMessage("Not enough points", 2);
             return false;
         }
+    }
+
+    private void GenerateUserId()
+    {
+        string glyphs = "abcdefghijklmnopqrstuvwxyz0123456789";
+        string GenString = "";
+
+        int charAmount = Random.Range(8, 12); //set those to the minimum and maximum length of your string
+
+        for (int i = 0; i < charAmount; i++)
+        {
+            GenString += glyphs[Random.Range(0, glyphs.Length)];
+        }
+
+        UserId = GenString;
+        Debug.Log(UserId);
     }
 
 
