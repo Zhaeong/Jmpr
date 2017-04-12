@@ -241,7 +241,6 @@ public class GuiController : MonoBehaviour {
 
             int Screen_img_width = Screen.width / 8;
 
-            float Screen_x_score_posit = Screen_x_name_width + 10;
 
             int Screen_y = 0;
 
@@ -259,7 +258,7 @@ public class GuiController : MonoBehaviour {
 
             //ColoredBallImg
             Screen_y = Screen_y + Screen_img_width + 10;
-            AddProjectile("ColoredSphere", "Colorful", ColoredBallImg, 50, Screen_y);
+            AddProjectile("Beach", "Beach", ColoredBallImg, 50, Screen_y);
 
             //Spike Sphere
             Screen_y = Screen_y + Screen_img_width + 10;

@@ -204,7 +204,7 @@ public class GameController : MonoBehaviour {
         string glyphs = "abcdefghijklmnopqrstuvwxyz0123456789";
         string GenString = "";
 
-        int charAmount = Random.Range(8, 12); //set those to the minimum and maximum length of your string
+        int charAmount = Random.Range(10, 20); //set those to the minimum and maximum length of your string
 
         for (int i = 0; i < charAmount; i++)
         {
@@ -212,7 +212,7 @@ public class GameController : MonoBehaviour {
         }
 
         UserId = GenString;
-        Debug.Log(UserId);
+        //Debug.Log(UserId);
     }
 
 
