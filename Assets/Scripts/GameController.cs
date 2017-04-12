@@ -180,7 +180,7 @@ public class GameController : MonoBehaviour {
             {
                 PlayerPrefs.SetInt(projectile, 1);
                 PlayerPrefs.SetInt("DeviceScorePouch", DevicePouch -= cost);
-                GC.SetShortMessage("Projectile Purchased", 2);
+                GC.SetShortMessage("Character Purchased", 2);
                 ChangePlayerModel(projectile);
                 return true;
             }
