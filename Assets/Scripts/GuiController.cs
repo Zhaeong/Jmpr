@@ -72,6 +72,8 @@ public class GuiController : MonoBehaviour {
     void OnGUI()
     {
 
+        
+
         if (DebugMenu)
         {
             GUI.Label(new Rect(0, 0, Screen.width, 100), string.Format("{0:N3}", "MovingPlat Speed: " + PC.MovingPlatSpeed), CustomGS.GetStyle("label"));

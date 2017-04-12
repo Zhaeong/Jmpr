@@ -10,8 +10,8 @@ public class DirectionForceController : MonoBehaviour {
     private GameController GC;
 
 
-    Vector3 vStartVector;
-    Vector3 vEndVector; 
+    public Vector3 vStartVector;
+    public Vector3 vEndVector; 
     // Use this for initialization
     void Start () {
         GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>();

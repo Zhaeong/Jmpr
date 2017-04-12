@@ -149,6 +149,13 @@ public class PlatformSpawner : MonoBehaviour {
         {
             Destroy(plat);
         }
+
+        GameObject[] Barrierplatforms = GameObject.FindGameObjectsWithTag("MovingBarrierPlatform");
+        foreach (GameObject plat in Barrierplatforms)
+        {
+            Destroy(plat);
+        }
+
         GameObject newPlat = Instantiate(Platform);
         newPlat.transform.position = new Vector3(PlayerStartingPosit.x, PlayerStartingPosit.y - 1, PlayerStartingPosit.z);
 
