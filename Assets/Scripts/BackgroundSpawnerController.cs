@@ -100,6 +100,8 @@ public class BackgroundSpawnerController : MonoBehaviour {
         float initial_z = TL_z;
         float initial_x = TL_x;
 
+        int PillerNumber = 0;
+
         for (float z = initial_z; z > BL_z; z -= Objsize.z + ObjGapSize)
 
         {
@@ -110,6 +112,8 @@ public class BackgroundSpawnerController : MonoBehaviour {
                 float DistanceScaled_y = Random.Range(1.0f, 3.0f);
 
                 GameObject bckOBj = BackgroundObj;
+                bckOBj.name = "Piller" + PillerNumber;
+                PillerNumber++;
                 bckOBj.transform.localScale = new Vector3(DistanceScaled, DistanceScaled_y, DistanceScaled);
                 
                 bckOBj.tag = objtag;
