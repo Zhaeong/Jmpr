@@ -26,6 +26,8 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
     private bool SpawnA;
 
+    public List<GameObject> PillarsA, PillarsB;
+
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -37,9 +39,13 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
         Vector3 SpawnerPosit = transform.position;
 
-        SpawnBlocks(SpawnerPosit, "BckListA");
+        PillarsA = new List<GameObject>();
+        PillarsB = new List<GameObject>();
 
-        SpawnBlocks(new Vector3(SpawnerPosit.x, SpawnerPosit.y, SpawnerPosit.z + (2* SpawnSize_z)), "BckListB");
+        SpawnBlocks(SpawnerPosit, "BckListA", PillarsA);
+
+        SpawnBlocks(new Vector3(SpawnerPosit.x, SpawnerPosit.y, SpawnerPosit.z + (2* SpawnSize_z)), "BckListB", PillarsB);
+
 
         z_boundary = SpawnerPosit.z + SpawnSize_z;
 
@@ -60,16 +66,17 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
             if (SpawnA)
             {
-                DeleteBlocks("BckListA");
-                SpawnBlocks(spawnPosition, "BckListA");
-                
+                //DeleteBlocks("BckListA");
+                //SpawnBlocks(spawnPosition, "BckListA", PillarsA);
+                MoveBlocks(spawnPosition, PillarsA);
+
                 SpawnA = false;
             }
             else
             {
-                DeleteBlocks("BckListB");
-                SpawnBlocks(spawnPosition, "BckListB");
-                
+                //DeleteBlocks("BckListB");
+                //SpawnBlocks(spawnPosition, "BckListB", PillarsB);
+                MoveBlocks(spawnPosition, PillarsB);
                 SpawnA = true;
             }
 
@@ -81,7 +88,7 @@ public class BackgroundSpawnerController : MonoBehaviour {
 		
 	}
 
-    void SpawnBlocks(Vector3 spawnPosit, string objtag)
+    void SpawnBlocks(Vector3 spawnPosit, string objtag, List<GameObject> PillarsList)
     {
 
         TL_x = spawnPosit.x - SpawnSize_x;
@@ -118,7 +125,9 @@ public class BackgroundSpawnerController : MonoBehaviour {
                 
                 bckOBj.tag = objtag;
                 Objsize = BackgroundObj.GetComponent<Renderer>().bounds.size;
-                Instantiate(bckOBj, new Vector3(x, spawnPosit.y, z), Quaternion.Euler(-90, 0, 0));
+
+                PillarsList.Add(Instantiate(bckOBj, new Vector3(x, spawnPosit.y, z), Quaternion.Euler(-90, 0, 0)));
+                
             }
         }
 
@@ -135,11 +144,55 @@ public class BackgroundSpawnerController : MonoBehaviour {
             
     }
 
+    //Move the blocks to location to improve performance
+    void MoveBlocks(Vector3 spawnPosit, List<GameObject> PillarsList)
+    {
+        TL_x = spawnPosit.x - SpawnSize_x;
+        TL_z = spawnPosit.z + SpawnSize_z;
+
+        TR_x = spawnPosit.x + SpawnSize_x;
+        TR_z = spawnPosit.z + SpawnSize_z;
+
+        BL_x = spawnPosit.x - SpawnSize_x;
+        BL_z = spawnPosit.z - SpawnSize_z;
+
+        BR_x = spawnPosit.x + SpawnSize_x;
+        BR_z = spawnPosit.z - SpawnSize_z;
+
+        float initial_z = TL_z;
+        float initial_x = TL_x;
+
+        int ObjNum = 0;
+
+        for (float z = initial_z; z > BL_z; z -= Objsize.z + ObjGapSize)
+
+        {
+            for (float x = initial_x; x < TR_x; x += Objsize.x + ObjGapSize)
+            {
+                if (ObjNum < PillarsList.Count)
+                {
+
+                    float randomY = Random.Range(spawnPosit.y -1.0f, spawnPosit.y + 1.0f);
+
+                    Objsize = PillarsList[ObjNum].GetComponent<Renderer>().bounds.size;
+
+                    PillarsList[ObjNum].transform.position = new Vector3(x, randomY, z);
+                    ObjNum++;
+                }
+                
+            }
+        }
+
+
+    }
+
     public void Restart()
     {
         DeleteBlocks("BckListA");
         DeleteBlocks("BckListB");
 
+        PillarsA = new List<GameObject>();
+        PillarsB = new List<GameObject>();
 
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -150,9 +203,9 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
         Vector3 SpawnerPosit = transform.position;
 
-        SpawnBlocks(SpawnerPosit, "BckListA");
+        SpawnBlocks(SpawnerPosit, "BckListA", PillarsA);
 
-        SpawnBlocks(new Vector3(SpawnerPosit.x, SpawnerPosit.y, SpawnerPosit.z + (2 * SpawnSize_z)), "BckListB");
+        SpawnBlocks(new Vector3(SpawnerPosit.x, SpawnerPosit.y, SpawnerPosit.z + (2 * SpawnSize_z)), "BckListB", PillarsB);
 
         z_boundary = SpawnerPosit.z + SpawnSize_z;
 

@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class RespawnController : MonoBehaviour {
 
-    //private Transform RespawnPoint;
     private GameObject PlayerChar;
 
     private float RespawnHeight;
@@ -33,6 +32,7 @@ public class RespawnController : MonoBehaviour {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         if (other.tag == "Player")
         {
+
             GC.pauseGame();
         }
         
