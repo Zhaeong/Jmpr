@@ -66,23 +66,17 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
             if (SpawnA)
             {
-                //DeleteBlocks("BckListA");
-                //SpawnBlocks(spawnPosition, "BckListA", PillarsA);
                 MoveBlocks(spawnPosition, PillarsA);
 
                 SpawnA = false;
             }
             else
             {
-                //DeleteBlocks("BckListB");
-                //SpawnBlocks(spawnPosition, "BckListB", PillarsB);
                 MoveBlocks(spawnPosition, PillarsB);
                 SpawnA = true;
             }
 
             z_boundary = newPosition.z + SpawnSize_z*2;
-
-
         }
         
 		

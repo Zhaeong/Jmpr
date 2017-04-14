@@ -57,7 +57,6 @@ public class CollisionController : MonoBehaviour {
         {
             gameObject.GetComponent<MovingBarrierController>().isPlayerOn = true;
         }
-
     }
 
     void OnTriggerExit(Collider other)
