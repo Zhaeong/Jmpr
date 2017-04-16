@@ -55,6 +55,12 @@ public class PlatformSpawner : MonoBehaviour {
 
             if (GameScore == 3)
             {
+                DistanceOffsetMaxAug = 30;
+                SpawnPlatByIndex(0);
+
+            }
+            else if (GameScore == 5)
+            {
                 RangesAvailSpawn += 1;
                 SpawnPlatByIndex(1);
             }
