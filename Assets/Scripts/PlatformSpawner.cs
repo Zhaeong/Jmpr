@@ -26,7 +26,7 @@ public class PlatformSpawner : MonoBehaviour {
     public bool SpawnPlatform;
 
     private int GameScore;
-    private int RangesAvailSpawn;
+    private int RangesAvailSpawn, RangesAvailSpawnMin;
     
 
 	// Use this for initialization
@@ -36,6 +36,7 @@ public class PlatformSpawner : MonoBehaviour {
         MovingPlatSpeed = 2;
         BarrierMovingPlatSpeed = 2;
         MovingBarrierSpeed = 2;
+        RangesAvailSpawnMin = 0;
         RangesAvailSpawn = 1;
 
         DistanceOffsetMaxAug = DistanceOffsetMax;
@@ -99,10 +100,15 @@ public class PlatformSpawner : MonoBehaviour {
                 RangesAvailSpawn += 1;
                 SpawnPlatByIndex(5);
             }
+            else if (GameScore == 30)
+            {
+                SpawnPlatByIndex(5);
+                RangesAvailSpawnMin++;
+            }
             else
             {
                 //Determine which platform to spawn
-                int whichPlattoSpawn = Random.Range(0, RangesAvailSpawn);
+                int whichPlattoSpawn = Random.Range(RangesAvailSpawnMin, RangesAvailSpawn);
                 SpawnPlatByIndex(whichPlattoSpawn);
 
                 //Add distance by which platform can spawn
