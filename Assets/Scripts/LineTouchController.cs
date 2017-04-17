@@ -51,14 +51,14 @@ public class LineTouchController : MonoBehaviour {
 
                 LR.SetPosition(0, LineObjStart.transform.position);
                 LR.SetPosition(1, LineObjMid.transform.position);
-                LR.SetPosition(2, LineObjEnd.transform.position);
+                //LR.SetPosition(2, LineObjEnd.transform.position);
             }
             else
             {
                 LineObjMid.transform.position = worldPos;
                 LR.SetPosition(0, LineObjStart.transform.position);
                 LR.SetPosition(1, LineObjMid.transform.position);
-                LR.SetPosition(2, LineObjEnd.transform.position);
+                //LR.SetPosition(2, LineObjEnd.transform.position);
             }
 
             
