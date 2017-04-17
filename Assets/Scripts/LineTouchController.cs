@@ -5,8 +5,12 @@ using UnityEngine;
 public class LineTouchController : MonoBehaviour {
 
     public GameObject LineObjStart, LineObjEnd, LineObjMid;
-    public Vector3 mousepos;
-    public Vector3 worldPos;
+
+    public float lineMax;
+
+    public Vector3 MouseForce;
+    private Vector3 mousepos;
+    private Vector3 worldPos;
 
     
 
@@ -41,27 +45,22 @@ public class LineTouchController : MonoBehaviour {
 
             worldPos = Camera.main.ScreenToWorldPoint(WorldTransform);
 
-            LineObjEnd.transform.position = worldPos;
-            Debug.Log(Vector3.Distance(LineObjStart.transform.position, LineObjEnd.transform.position));
+            LineObjEnd.transform.position = worldPos;            
 
-            if (Vector3.Distance(LineObjStart.transform.position, LineObjEnd.transform.position) > 1)
+            if (Vector3.Distance(LineObjStart.transform.position, LineObjEnd.transform.position) > lineMax)
             {
-                LineObjMid.transform.position = LineObjStart.transform.position + (LineObjEnd.transform.position - LineObjStart.transform.position).normalized;
-
-
+                LineObjMid.transform.position = LineObjStart.transform.position + ((LineObjEnd.transform.position - LineObjStart.transform.position).normalized  * lineMax);                
+                
                 LR.SetPosition(0, LineObjStart.transform.position);
                 LR.SetPosition(1, LineObjMid.transform.position);
-                //LR.SetPosition(2, LineObjEnd.transform.position);
+
             }
             else
             {
                 LineObjMid.transform.position = worldPos;
                 LR.SetPosition(0, LineObjStart.transform.position);
                 LR.SetPosition(1, LineObjMid.transform.position);
-                //LR.SetPosition(2, LineObjEnd.transform.position);
             }
-
-            
         }
         if (Input.GetMouseButtonUp(0))
         {

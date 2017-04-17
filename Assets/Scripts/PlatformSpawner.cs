@@ -47,20 +47,35 @@ public class PlatformSpawner : MonoBehaviour {
         
         if (SpawnPlatform)
         {
-            //Moves the spawner postion to the player's position + DistanceOffset in the z axis
+            
 
             GameScore = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore();
+
+            //Moves the spawner postion to the player's position + DistanceOffset in the z axis
+
             float DistanceOffset = Random.Range(DistanceOffsetMin, DistanceOffsetMaxAug);
+
+            if (GameScore == 1)
+            {
+                DistanceOffset = 8;
+            }
+            else if (GameScore == 2)
+            {
+                DistanceOffset = 10;
+            }
+            else if (GameScore == 3)
+            {
+                DistanceOffset = 20;
+            }
+
+
             transform.position = new Vector3(PlayerChar.transform.position.x, 0, PlayerChar.transform.position.z + DistanceOffset);
 
-            if (GameScore == 3)
-            {
-                DistanceOffsetMaxAug = 30;
-                SpawnPlatByIndex(0);
 
-            }
-            else if (GameScore == 5)
+
+            if (GameScore == 5)
             {
+                //Add moving platform to available platforms to be spawned
                 RangesAvailSpawn += 1;
                 SpawnPlatByIndex(1);
             }
@@ -95,8 +110,10 @@ public class PlatformSpawner : MonoBehaviour {
                 {
                     DistanceOffsetMaxAug += GameScore / 8;
                 }
-            }            
+            }
+
             
+
         } 
 	}
 

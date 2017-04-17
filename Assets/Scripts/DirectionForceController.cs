@@ -6,12 +6,15 @@ public class DirectionForceController : MonoBehaviour {
     public float Speed;
     public float Angle_of_Forward_force;
     public bool bGrounded;
+    public float MagnitudeMax;
     private Rigidbody Object_RB;
     private GameController GC;
 
 
     public Vector3 vStartVector;
-    public Vector3 vEndVector; 
+    public Vector3 vEndVector;
+
+    private LineTouchController LTC;
     // Use this for initialization
     void Start () {
         GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>();
@@ -19,6 +22,8 @@ public class DirectionForceController : MonoBehaviour {
         vStartVector = Vector3.zero;
         vEndVector = Vector3.zero;
         bGrounded = true;
+
+        LTC = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LineTouchController>();
     }
 	
 	// Update is called once per frame
@@ -27,7 +32,7 @@ public class DirectionForceController : MonoBehaviour {
         if (GC.GameStart)
         {
             mouseControls();
-            touchControls();
+            //touchControls();
         }        
 
     }
@@ -41,10 +46,15 @@ public class DirectionForceController : MonoBehaviour {
         else if (Input.GetMouseButtonUp(0))
         {
             vEndVector = Input.mousePosition;
-            Vector3 vDirection = vEndVector - vStartVector;
-            Vector3 vForce = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirection;
 
-            Object_RB.AddForce(vForce * Speed);
+            Vector3 vDirection = vEndVector - vStartVector;
+
+            Vector3 vForce = Quaternion.Euler(Angle_of_Forward_force, 1, 1) * vDirection;
+
+            Object_RB.AddForce(Vector3.ClampMagnitude(vForce * Speed, MagnitudeMax));
+
+            Debug.Log(Vector3.ClampMagnitude(vForce * Speed, MagnitudeMax).magnitude);
+
             bGrounded = false;
         }
         else if (Input.GetMouseButton(0)) //mouse held down
