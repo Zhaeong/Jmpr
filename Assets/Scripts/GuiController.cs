@@ -113,6 +113,14 @@ public class GuiController : MonoBehaviour {
                 GUI.Label(new Rect(0, 120, Screen.width, 60), "Points: " + 0, CustomGS.GetStyle("label"));
             }
         }
+        else
+        {
+            if (GUI.Button(new Rect(0, 0, Screen.width / 8, Screen.width / 8), "R", CustomGS.GetStyle("button")))
+            {
+                Time.timeScale = 1;
+                Invoke("StartGameFunc", 0.1f);
+            }
+        }
 
 
         if (!GC.GameStart && StartMenu)
