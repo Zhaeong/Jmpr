@@ -53,9 +53,15 @@ public class CollisionController : MonoBehaviour {
             gameObject.GetComponent<MovementPlatformController>().isPlayerOn = true;
         }
 
-        if (gameObject.tag == "MovingBarrierPlatform")
+        if (gameObject.tag == "MovingBarrierPlatform" )
         {
-            gameObject.GetComponent<MovingBarrierController>().isPlayerOn = true;
+            gameObject.GetComponentInChildren<MovingBarrierController>().isPlayerOn = true;
+        }
+
+        if (gameObject.tag == "MovingBarrierAndPlatform")
+        {
+            gameObject.GetComponent<MovementPlatformController>().isPlayerOn = true;
+            gameObject.transform.parent.GetComponentInChildren<MovingBarrierController>().isPlayerOn = true;            
         }
     }
 

@@ -5,12 +5,11 @@ using UnityEngine;
 public class MovementPlatformController : MonoBehaviour {
 
     public GameObject Platform;
-
     public GameObject Anchor1;
     public GameObject Anchor2;
     public bool isPlayerOn;
 
-    private bool moveRight;
+    public bool moveRight;
 
     // Use this for initialization
     void Start () {

@@ -12,6 +12,7 @@ public class PlatformSpawner : MonoBehaviour {
     public GameObject BarrierPlatform;
     public GameObject BarrierMovingPlatform;
     public GameObject MovingBarrierPlatform;
+    public GameObject MovingBarrierAndPlatform;
 
 
 
@@ -135,7 +136,7 @@ public class PlatformSpawner : MonoBehaviour {
                 SpawnPlatType(MovingPlatform);
                 if (MovingPlatSpeed < 20)
                 {
-                    MovingPlatSpeed += 0.5f;
+                    MovingPlatSpeed += 0.2f;
                 }
                 
                 break;
@@ -153,9 +154,21 @@ public class PlatformSpawner : MonoBehaviour {
                 SpawnPlatType(MovingBarrierPlatform);
                 if (MovingBarrierSpeed < 20)
                 {
-                    MovingBarrierSpeed += 0.5f;
+                    MovingBarrierSpeed += 0.2f;
                 }                
                 break;
+            case 5:
+                SpawnPlatType(MovingBarrierAndPlatform);
+                if (MovingBarrierSpeed < 20)
+                {
+                    MovingBarrierSpeed += 0.2f;
+                }
+                if (MovingPlatSpeed < 20)
+                {
+                    MovingPlatSpeed += 0.2f;
+                }
+                break;
+
             default:
                 SpawnPlatType(Platform);
                 break;
