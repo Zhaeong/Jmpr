@@ -104,8 +104,7 @@ public class GameController : MonoBehaviour {
 
     public void GetLeaderboard()
     {
-        GC.showMessage = true;
-        GC.MsgPrompt = "Loading Leaderboard";
+        GC.SetShortMessage("Loading Leaderboard", 3);
 
         FirebaseDatabase.DefaultInstance
                 .GetReference("scores").OrderByChild("Score")
@@ -117,10 +116,8 @@ public class GameController : MonoBehaviour {
         if (args.DatabaseError != null)
         {
             Debug.LogError(args.DatabaseError.Message);
+            GC.SetShortMessage("Database Error", 3);
 
-            GC.showMessage = true;
-            GC.MsgPrompt = args.DatabaseError.Message;
-            
             return;
         }
         // Do something with the data in args.Snapshot
@@ -135,8 +132,6 @@ public class GameController : MonoBehaviour {
 
             SendScoreObj person = new SendScoreObj(UserId, personAlias, int.Parse(personScore));
             SendScoreList.Add(person);
-
-            //Debug.Log(personAlias + " --" + personScore);
         }
         GC.LeaderboardScores = SendScoreList;
     }
