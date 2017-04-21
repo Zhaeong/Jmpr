@@ -8,6 +8,8 @@ public class BackgroundSpawnerController : MonoBehaviour {
     public GameObject BackgroundObj;
 
     public float SpawnSize_x, SpawnSize_z;
+    
+    public Material BlockMaterial;
 
     private Vector3 Objsize;
 
@@ -25,6 +27,8 @@ public class BackgroundSpawnerController : MonoBehaviour {
     private GameObject player;
 
     private bool SpawnA;
+
+    private int Score;
 
     public List<GameObject> PillarsA, PillarsB;
 
@@ -50,6 +54,7 @@ public class BackgroundSpawnerController : MonoBehaviour {
         z_boundary = SpawnerPosit.z + SpawnSize_z;
 
         SpawnA = true;
+
     }
 	
 	// Update is called once per frame
@@ -141,6 +146,8 @@ public class BackgroundSpawnerController : MonoBehaviour {
     //Move the blocks to location to improve performance
     void MoveBlocks(Vector3 spawnPosit, List<GameObject> PillarsList)
     {
+        GetBlockMaterial();
+
         TL_x = spawnPosit.x - SpawnSize_x;
         TL_z = spawnPosit.z + SpawnSize_z;
 
@@ -171,14 +178,24 @@ public class BackgroundSpawnerController : MonoBehaviour {
                     Objsize = PillarsList[ObjNum].GetComponent<Renderer>().bounds.size;
 
                     PillarsList[ObjNum].transform.position = new Vector3(x, randomY, z);
+
+                    PillarsList[ObjNum].GetComponent<Renderer>().material = BlockMaterial;
                     ObjNum++;
                 }
                 
             }
         }
-
-
     }
+
+    public void GetBlockMaterial()
+    {
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() > 3)
+        {
+
+            BlockMaterial.color = new Color(1, 0, 0);
+        }
+    }
+
 
     public void Restart()
     {
