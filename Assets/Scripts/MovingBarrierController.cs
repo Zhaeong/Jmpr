@@ -15,12 +15,10 @@ public class MovingBarrierController : MonoBehaviour {
     public bool moveRight;
 
     // Use this for initialization
-    void Start () {
-        
+    void Start () {       
 
             int random = Random.Range(0, 2);
-            moveRight = (random == 1);
-        
+            moveRight = (random == 1); 
         
     }
 	

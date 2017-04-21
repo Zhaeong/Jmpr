@@ -181,8 +181,7 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
                     PillarsList[ObjNum].GetComponent<Renderer>().material = BlockMaterial;
                     ObjNum++;
-                }
-                
+                }                
             }
         }
     }
