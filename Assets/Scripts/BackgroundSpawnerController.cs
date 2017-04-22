@@ -8,7 +8,7 @@ public class BackgroundSpawnerController : MonoBehaviour {
     public GameObject BackgroundObj;
 
     public float SpawnSize_x, SpawnSize_z;
-    
+
     public Material BlockMaterial;
 
     private Vector3 Objsize;
@@ -34,6 +34,7 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
         player = GameObject.FindGameObjectWithTag("Player");
 
         y_spawnposition = player.transform.position.y - y_offset;
@@ -59,6 +60,8 @@ public class BackgroundSpawnerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        GetBlockMaterial();
 
         if (player.transform.position.z >= z_boundary)
         {
@@ -125,6 +128,11 @@ public class BackgroundSpawnerController : MonoBehaviour {
                 bckOBj.tag = objtag;
                 Objsize = BackgroundObj.GetComponent<Renderer>().bounds.size;
 
+                BlockMaterial.color = new Color32(73, 54, 54, 255);
+               
+                bckOBj.GetComponent<Renderer>().material = new Material(BlockMaterial);
+                
+
                 PillarsList.Add(Instantiate(bckOBj, new Vector3(x, spawnPosit.y, z), Quaternion.Euler(-90, 0, 0)));
                 
             }
@@ -146,7 +154,6 @@ public class BackgroundSpawnerController : MonoBehaviour {
     //Move the blocks to location to improve performance
     void MoveBlocks(Vector3 spawnPosit, List<GameObject> PillarsList)
     {
-        GetBlockMaterial();
 
         TL_x = spawnPosit.x - SpawnSize_x;
         TL_z = spawnPosit.z + SpawnSize_z;
@@ -179,7 +186,12 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
                     PillarsList[ObjNum].transform.position = new Vector3(x, randomY, z);
 
-                    PillarsList[ObjNum].GetComponent<Renderer>().material = BlockMaterial;
+                    Material ThisblockMat = new Material(BlockMaterial);
+                    
+                    PillarsList[ObjNum].GetComponent<Renderer>().material = ThisblockMat;
+                    
+                    
+                    
                     ObjNum++;
                 }                
             }
@@ -188,10 +200,20 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
     public void GetBlockMaterial()
     {
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() > 3)
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 5)
         {
 
-            BlockMaterial.color = new Color(1, 0, 0);
+                BlockMaterial.color = new Color(0.73f, 0.54f, 0.54f);
+
+
+      
+        }
+        else if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 20)
+        {           
+
+                BlockMaterial.color = new Color(0, 0, 0);
+
+
         }
     }
 
