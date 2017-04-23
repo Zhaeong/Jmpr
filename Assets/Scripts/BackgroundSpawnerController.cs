@@ -10,6 +10,7 @@ public class BackgroundSpawnerController : MonoBehaviour {
     public float SpawnSize_x, SpawnSize_z;
 
     public Material BlockMaterial;
+    public Color32 PillarInitColor;
 
     private Vector3 Objsize;
 
@@ -128,10 +129,11 @@ public class BackgroundSpawnerController : MonoBehaviour {
                 bckOBj.tag = objtag;
                 Objsize = BackgroundObj.GetComponent<Renderer>().bounds.size;
 
-                BlockMaterial.color = new Color32(73, 54, 54, 255);
-               
-                bckOBj.GetComponent<Renderer>().material = new Material(BlockMaterial);
-                
+                //BlockMaterial.color = new Color32(73, 54, 54, 255);
+                BlockMaterial.color = new Color32(131, 50, 50, 255);
+                //BlockMaterial.color = PillarInitColor;
+
+                bckOBj.GetComponent<Renderer>().material = new Material(BlockMaterial);                
 
                 PillarsList.Add(Instantiate(bckOBj, new Vector3(x, spawnPosit.y, z), Quaternion.Euler(-90, 0, 0)));
                 
@@ -188,8 +190,7 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
                     Material ThisblockMat = new Material(BlockMaterial);
                     
-                    PillarsList[ObjNum].GetComponent<Renderer>().material = ThisblockMat;
-                    
+                    PillarsList[ObjNum].GetComponent<Renderer>().material = ThisblockMat;     
                     
                     
                     ObjNum++;
@@ -203,15 +204,29 @@ public class BackgroundSpawnerController : MonoBehaviour {
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 5)
         {
 
-                BlockMaterial.color = new Color(0.73f, 0.54f, 0.54f);
+                BlockMaterial.color = new Color32(199, 116, 72, 255);
 
 
       
         }
-        else if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 20)
+        else if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 10)
         {           
 
-                BlockMaterial.color = new Color(0, 0, 0);
+                BlockMaterial.color = new Color32(146, 139, 34, 255);
+
+
+        }
+        else if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 20)
+        {
+
+            BlockMaterial.color = new Color32(47, 135,31, 255);
+
+
+        }
+        else if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 30)
+        {
+
+            BlockMaterial.color = new Color32(20, 92, 96, 255);
 
 
         }

@@ -7,6 +7,11 @@ public class DirectionForceController : MonoBehaviour {
     public float Angle_of_Forward_force;
     public bool bGrounded;
     public float MagnitudeMax;
+
+    private AudioSource audio;
+    public AudioClip FlickSound;
+
+
     private Rigidbody Object_RB;
     private GameController GC;
 
@@ -24,6 +29,7 @@ public class DirectionForceController : MonoBehaviour {
         bGrounded = true;
 
         LTC = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<LineTouchController>();
+        audio = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -54,6 +60,8 @@ public class DirectionForceController : MonoBehaviour {
             Object_RB.AddForce(Vector3.ClampMagnitude(vForce * Speed, MagnitudeMax));
 
             Debug.Log(Vector3.ClampMagnitude(vForce * Speed, MagnitudeMax).magnitude);
+
+            audio.PlayOneShot(FlickSound);
 
             bGrounded = false;
         }
