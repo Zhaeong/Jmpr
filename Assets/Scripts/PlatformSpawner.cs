@@ -203,6 +203,7 @@ public class PlatformSpawner : MonoBehaviour {
 
         PlayerChar.transform.position = PlayerStartingPosit;
         RangesAvailSpawn = 1;
+        RangesAvailSpawnMin = 0;
         DistanceOffsetMaxAug = DistanceOffsetMax;
 
     }
