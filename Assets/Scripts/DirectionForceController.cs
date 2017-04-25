@@ -57,8 +57,12 @@ public class DirectionForceController : MonoBehaviour {
 
             Vector3 vForce = Quaternion.Euler(Angle_of_Forward_force, 1, 1) * vDirection;
 
-            Object_RB.AddForce(Vector3.ClampMagnitude(vForce * Speed, MagnitudeMax));
+            Object_RB.AddForce(Vector3.ClampMagnitude(vForce * Speed, MagnitudeMax));            
 
+            float ForceMagnitude = Vector3.ClampMagnitude(vForce * Speed, MagnitudeMax).magnitude;
+
+            //Make volumn the amount of force applied
+            audio.volume = ForceMagnitude / MagnitudeMax;
             audio.PlayOneShot(GC.FlickSound);
 
             bGrounded = false;
@@ -70,8 +74,6 @@ public class DirectionForceController : MonoBehaviour {
             Vector3 vDirectionRot = vEndVector - vStartVector;
             Vector3 vForceRot = Quaternion.Euler(Angle_of_Forward_force, 0, 0) * vDirectionRot;
             gameObject.GetComponent<RotationByMagnitude>().rotationAngle = vForceRot;
-
-
         }
     }
 

@@ -115,7 +115,7 @@ public class GuiController : MonoBehaviour {
         }
         else
         {
-            if (GUI.Button(new Rect(0, 0, Screen.width / 8, Screen.width / 8), "R", CustomGS.GetStyle("button")))
+            if (GUI.Button(new Rect(0, 0, Screen.width / 8, Screen.width / 8), "", CustomGS.GetStyle("restartbutton")))
             {
                 Time.timeScale = 1;
                 Invoke("StartGameFunc", 0.1f);
