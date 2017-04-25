@@ -9,7 +9,7 @@ public class DirectionForceController : MonoBehaviour {
     public float MagnitudeMax;
 
     private AudioSource audio;
-    public AudioClip FlickSound;
+    
 
 
     private Rigidbody Object_RB;
@@ -59,9 +59,7 @@ public class DirectionForceController : MonoBehaviour {
 
             Object_RB.AddForce(Vector3.ClampMagnitude(vForce * Speed, MagnitudeMax));
 
-            Debug.Log(Vector3.ClampMagnitude(vForce * Speed, MagnitudeMax).magnitude);
-
-            audio.PlayOneShot(FlickSound);
+            audio.PlayOneShot(GC.FlickSound);
 
             bGrounded = false;
         }

@@ -6,13 +6,15 @@ public class CollisionController : MonoBehaviour {
 
     public GameObject Particles;
 
+    private AudioSource audio;    
+
     private GameController GC;
 
     private Quaternion CollisionRotation;
     // Use this for initialization
     void Start () {
         GC = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>();
-
+        audio = gameObject.AddComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -22,6 +24,9 @@ public class CollisionController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        //Play sound
+        audio.PlayOneShot(GC.CollideSound);
+
         //Instantiate partiles
         Instantiate(Particles, new Vector3(GC.transform.position.x, GC.transform.position.y, GC.transform.position.z), Quaternion.Euler(-90, 0, 0));
 

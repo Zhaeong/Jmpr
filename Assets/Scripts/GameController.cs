@@ -17,6 +17,10 @@ public class GameController : MonoBehaviour {
 
     public string UserId;
 
+    public AudioClip CollideSound;
+    public AudioClip FlickSound;
+    public AudioClip DieSound;
+
     private PlatformSpawner PS;
     private GuiController GC;
     private BackgroundSpawnerController BSC;

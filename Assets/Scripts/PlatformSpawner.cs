@@ -34,27 +34,18 @@ public class PlatformSpawner : MonoBehaviour {
 	void Start () {
         PlayerStartingPosit = PlayerChar.position;
         SpawnPlatform = false;
-        MovingPlatSpeed = 2;
-        BarrierMovingPlatSpeed = 2;
-        MovingBarrierSpeed = 2;
-        RangesAvailSpawnMin = 0;
-        RangesAvailSpawn = 1;
+        ResetValues();
 
         DistanceOffsetMaxAug = DistanceOffsetMax;
     }
 	
 	// Update is called once per frame
-	void Update () {
-
-        
+	void Update () {        
         if (SpawnPlatform)
         {
-            
-
             GameScore = GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore();
 
             //Moves the spawner postion to the player's position + DistanceOffset in the z axis
-
             float DistanceOffset = Random.Range(DistanceOffsetMin, DistanceOffsetMaxAug);
 
             if (GameScore == 1)
@@ -186,6 +177,8 @@ public class PlatformSpawner : MonoBehaviour {
 
     public void RespawnGameStart()
     {
+        ResetValues();
+
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
         foreach (GameObject plat in platforms)
         {
@@ -202,10 +195,21 @@ public class PlatformSpawner : MonoBehaviour {
         newPlat.transform.position = new Vector3(PlayerStartingPosit.x, PlayerStartingPosit.y - 1, PlayerStartingPosit.z);
 
         PlayerChar.transform.position = PlayerStartingPosit;
-        RangesAvailSpawn = 1;
-        RangesAvailSpawnMin = 0;
+        
         DistanceOffsetMaxAug = DistanceOffsetMax;
 
+    }
+
+    public void ResetValues()
+    {
+        MovingPlatSpeed = 2;
+        BarrierMovingPlatSpeed = 2;
+        MovingBarrierSpeed = 2;
+        RangesAvailSpawnMin = 0;
+        RangesAvailSpawn = 1;
+        
+
+    
     }
 
 }

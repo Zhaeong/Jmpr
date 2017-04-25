@@ -10,7 +10,9 @@ public class RespawnController : MonoBehaviour {
     private float RespawnHeight;
     private GameController GC;
 
-    
+    private AudioSource audio;
+
+
     private Transform PlatformStartingTransform;
 
 
@@ -19,6 +21,7 @@ public class RespawnController : MonoBehaviour {
         PlayerChar = GameObject.FindGameObjectWithTag("Player");
         //RespawnPoint = GameObject.FindGameObjectWithTag("RespawnPoint").transform;
         GC = PlayerChar.GetComponent<GameController>();
+        audio = gameObject.AddComponent<AudioSource>();
         RespawnHeight = -5;
 
     }
@@ -32,7 +35,7 @@ public class RespawnController : MonoBehaviour {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         if (other.tag == "Player")
         {
-
+            audio.PlayOneShot(GC.DieSound);
             GC.pauseGame();
         }
         
