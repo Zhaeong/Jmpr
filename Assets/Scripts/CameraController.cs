@@ -21,12 +21,8 @@ public class CameraController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //transform.position = new Vector3(obj_tracked.position.x + x_offset, obj_tracked.position.y + y_offset, obj_tracked.position.z + z_offset);
-
         specificVector = new Vector3(obj_tracked.position.x + x_offset, obj_tracked.position.y + y_offset, obj_tracked.position.z + z_offset);
-        //transform.position = Vector3.Slerp(transform.position, specificVector, smoothSpeed * Time.deltaTime);
-
+        
         transform.position = Vector3.SmoothDamp(transform.position, specificVector, ref velocity, smoothSpeed);
-
     }
 }
