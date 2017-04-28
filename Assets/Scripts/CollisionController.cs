@@ -25,7 +25,7 @@ public class CollisionController : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         //Play sound
-        audio.PlayOneShot(GC.CollideSound);
+        audio.PlayOneShot(GC.GetCurSound());
 
         //Instantiate partiles
         Instantiate(Particles, new Vector3(GC.transform.position.x, GC.transform.position.y, GC.transform.position.z), Quaternion.Euler(-90, 0, 0));

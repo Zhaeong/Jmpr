@@ -21,6 +21,18 @@ public class GameController : MonoBehaviour {
     public AudioClip FlickSound;
     public AudioClip DieSound;
 
+    public AudioClip Sound1;
+    public AudioClip Sound2;
+    public AudioClip Sound3;
+    public AudioClip Sound4;
+    public AudioClip Sound5;
+    public AudioClip Sound6;
+    public AudioClip Sound7;
+    public AudioClip Sound8;
+
+    private int SoundInt;
+    private bool IncrementSound;
+
     private PlatformSpawner PS;
     private GuiController GC;
     private BackgroundSpawnerController BSC;
@@ -82,7 +94,10 @@ public class GameController : MonoBehaviour {
     public void resumeGame()
     {
         GameStart = true;
-        
+
+        SoundInt = 1;
+        IncrementSound = true;
+
         iScore = 0;
         PS.RespawnGameStart();
 
@@ -150,7 +165,6 @@ public class GameController : MonoBehaviour {
         {            
             return 0;
         }
-
     }
 
     public void ChangePlayerModel(string ModelName)
@@ -166,8 +180,7 @@ public class GameController : MonoBehaviour {
             {
                 gameObject.transform.GetChild(i).tag = "PlayerModel";
                 gameObject.transform.GetChild(i).GetComponent<MeshRenderer>().enabled = false;
-            }
-            
+            }            
         }
     }    
 
@@ -212,6 +225,64 @@ public class GameController : MonoBehaviour {
 
         UserId = GenString;
         //Debug.Log(UserId);
+    }
+
+    public AudioClip GetCurSound()
+    {
+        if (IncrementSound)
+        {
+
+            if (SoundInt == 8)
+            {
+                IncrementSound = false;
+                return PlaySound(SoundInt);
+            }
+            else
+            {                
+                return PlaySound(SoundInt++);
+            }
+
+        }
+        else
+        {
+            if (SoundInt == 1)
+            {
+                IncrementSound = true;
+                return PlaySound(SoundInt);
+            }
+            else
+            {                
+                return PlaySound(SoundInt--);
+            }
+        }
+        
+    }
+
+    private AudioClip PlaySound(int i)
+    {
+
+
+        switch (i)
+        {
+            case 1:
+                return Sound1;
+            case 2:
+                return Sound2;
+            case 3:
+                return Sound3;
+            case 4:
+                return Sound4;
+            case 5:
+                return Sound5;
+            case 6:
+                return Sound6;
+            case 7:
+                return Sound7;
+            case 8:
+                return Sound8;
+            default:
+                return Sound1;
+        }
     }
 
 
