@@ -1,21 +1,31 @@
 fileFormatVersion: 2
-guid: e38b2baa5d47c314d93d38f693424801
-timeCreated: 1493358368
+guid: 4387f053e138c1b44a057e40079e5e5f
+timeCreated: 1493367450
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: Camera
     100002: //RootNode
-    100004: imatree
-    100006: Lamp
+    100004: Lamp
+    100006: leaf_big
+    100008: leaf_smol
+    100010: trunk
     400000: Camera
     400002: //RootNode
-    400004: imatree
-    400006: Lamp
-    2300000: imatree
-    3300000: imatree
-    4300000: imatree
+    400004: Lamp
+    400006: leaf_big
+    400008: leaf_smol
+    400010: trunk
+    2300000: leaf_big
+    2300002: leaf_smol
+    2300004: trunk
+    3300000: leaf_big
+    3300002: leaf_smol
+    3300004: trunk
+    4300000: leaf_smol
+    4300002: leaf_big
+    4300004: trunk
   materials:
     importMaterials: 1
     materialName: 0
@@ -40,8 +50,8 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 100
-    meshCompression: 3
+    globalScale: 1
+    meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0

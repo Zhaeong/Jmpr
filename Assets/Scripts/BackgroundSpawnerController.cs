@@ -6,13 +6,17 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
     public float ObjGapSize;
     public GameObject BackgroundObj;
-
+    public GameObject GroundPlane;
     public float SpawnSize_x, SpawnSize_z;
 
-    public Material BlockMaterial;
+    //public Material BlockMaterial;
+
+    public Material LeafMaterial;
     public Color32 PillarInitColor;
 
     private Vector3 Objsize;
+
+    private GameObject GeneratedGround;
 
     private float TL_x, TL_z;
     private float TR_x, TR_z;
@@ -52,6 +56,8 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
         SpawnBlocks(new Vector3(SpawnerPosit.x, SpawnerPosit.y, SpawnerPosit.z + (2* SpawnSize_z)), "BckListB", PillarsB);
 
+        GeneratedGround = Instantiate(GroundPlane, new Vector3(SpawnerPosit.x, SpawnerPosit.y - y_offset, SpawnerPosit.z), Quaternion.Euler(0, 0, 0));
+
 
         z_boundary = SpawnerPosit.z + SpawnSize_z;
 
@@ -62,7 +68,7 @@ public class BackgroundSpawnerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        GetBlockMaterial();
+        //GetBlockMaterial();
 
         if (player.transform.position.z >= z_boundary)
         {
@@ -112,6 +118,8 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
         int PillerNumber = 0;
 
+        
+
         for (float z = initial_z; z > BL_z; z -= Objsize.z + ObjGapSize)
 
         {
@@ -129,11 +137,12 @@ public class BackgroundSpawnerController : MonoBehaviour {
                 bckOBj.tag = objtag;
                 Objsize = BackgroundObj.GetComponent<Renderer>().bounds.size;
 
-                //BlockMaterial.color = new Color32(73, 54, 54, 255);
-                BlockMaterial.color = new Color32(131, 50, 50, 255);
-                //BlockMaterial.color = PillarInitColor;
 
-                bckOBj.GetComponent<Renderer>().material = new Material(BlockMaterial);                
+                //BlockMaterial.color = new Color32(131, 50, 50, 255);
+                LeafMaterial.color = getLeafColor();
+                bckOBj.GetComponent<MeshRenderer>().material = new Material(LeafMaterial);
+
+                //bckOBj.GetComponent<Renderer>().material = new Material(BlockMaterial);                
 
                 PillarsList.Add(Instantiate(bckOBj, new Vector3(x, spawnPosit.y, z), Quaternion.Euler(-90, 0, 0)));
                 
@@ -174,6 +183,8 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
         int ObjNum = 0;
 
+        GeneratedGround.transform.position = new Vector3(transform.position.x, transform.position.y - y_offset, transform.position.z);
+
         for (float z = initial_z; z > BL_z; z -= Objsize.z + ObjGapSize)
 
         {
@@ -188,9 +199,9 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
                     PillarsList[ObjNum].transform.position = new Vector3(x, randomY, z);
 
-                    Material ThisblockMat = new Material(BlockMaterial);
+                    //Material ThisblockMat = new Material(BlockMaterial);
                     
-                    PillarsList[ObjNum].GetComponent<Renderer>().material = ThisblockMat;     
+                    //PillarsList[ObjNum].GetComponent<Renderer>().material = ThisblockMat;     
                     
                     
                     ObjNum++;
@@ -199,35 +210,51 @@ public class BackgroundSpawnerController : MonoBehaviour {
         }
     }
 
-    public void GetBlockMaterial()
+    //public void GetBlockMaterial()
+    //{
+    //    if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 5)
+    //    {
+
+    //            BlockMaterial.color = new Color32(199, 116, 72, 255);
+
+    //    }
+    //    else if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 10)
+    //    {           
+
+    //            BlockMaterial.color = new Color32(146, 139, 34, 255);
+
+    //    }
+    //    else if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 20)
+    //    {
+
+    //        BlockMaterial.color = new Color32(47, 135,31, 255);
+
+    //    }
+    //    else if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 30)
+    //    {
+
+    //        BlockMaterial.color = new Color32(20, 92, 96, 255);
+
+
+    //    }
+    //}
+
+    private Color32 getLeafColor()
     {
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 5)
+        int coli = Random.Range(0, 4);
+        switch (coli)
         {
+            case 0:
+                return new Color32(34, 139, 34, 255);
+            case 1:
+                return new Color32(30, 125, 30, 255);
+            case 2:
+                return new Color32(27, 111, 27, 255);
+            case 3:
+                return new Color32(23, 97, 23, 255);
 
-                BlockMaterial.color = new Color32(199, 116, 72, 255);
-
-
-      
-        }
-        else if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 10)
-        {           
-
-                BlockMaterial.color = new Color32(146, 139, 34, 255);
-
-
-        }
-        else if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 20)
-        {
-
-            BlockMaterial.color = new Color32(47, 135,31, 255);
-
-
-        }
-        else if (GameObject.FindGameObjectWithTag("Player").GetComponent<GameController>().getScore() == 30)
-        {
-
-            BlockMaterial.color = new Color32(20, 92, 96, 255);
-
+            default:
+                return new Color32(34, 139, 34, 255);
 
         }
     }
