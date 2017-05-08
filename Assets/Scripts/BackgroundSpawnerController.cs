@@ -39,29 +39,7 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-        player = GameObject.FindGameObjectWithTag("Player");
-
-        y_spawnposition = player.transform.position.y - y_offset;
-        transform.position = new Vector3(player.transform.position.x, y_spawnposition, player.transform.position.z);
-
-        Objsize = BackgroundObj.GetComponent<Renderer>().bounds.size;
-
-        Vector3 SpawnerPosit = transform.position;
-
-        PillarsA = new List<GameObject>();
-        PillarsB = new List<GameObject>();
-
-        SpawnBlocks(SpawnerPosit, "BckListA", PillarsA);
-
-        SpawnBlocks(new Vector3(SpawnerPosit.x, SpawnerPosit.y, SpawnerPosit.z + (2* SpawnSize_z)), "BckListB", PillarsB);
-
-        GeneratedGround = Instantiate(GroundPlane, new Vector3(SpawnerPosit.x, SpawnerPosit.y - y_offset, SpawnerPosit.z), Quaternion.Euler(0, 0, 0));
-
-
-        z_boundary = SpawnerPosit.z + SpawnSize_z;
-
-        SpawnA = true;
+        Restart();
 
     }
 	
@@ -275,9 +253,14 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
         Objsize = BackgroundObj.GetComponent<Renderer>().bounds.size;
 
-        GeneratedGround.transform.position = new Vector3(transform.position.x, transform.position.y - y_offset, transform.position.z);
+        
 
         Vector3 SpawnerPosit = transform.position;
+
+        Destroy(GeneratedGround);
+        GeneratedGround = Instantiate(GroundPlane, new Vector3(SpawnerPosit.x, SpawnerPosit.y - y_offset, SpawnerPosit.z), Quaternion.Euler(0, 0, 0));
+
+        
 
         SpawnBlocks(SpawnerPosit, "BckListA", PillarsA);
 
