@@ -275,6 +275,8 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
         Objsize = BackgroundObj.GetComponent<Renderer>().bounds.size;
 
+        GeneratedGround.transform.position = new Vector3(transform.position.x, transform.position.y - y_offset, transform.position.z);
+
         Vector3 SpawnerPosit = transform.position;
 
         SpawnBlocks(SpawnerPosit, "BckListA", PillarsA);
