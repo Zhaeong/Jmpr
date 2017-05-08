@@ -6,6 +6,7 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
     public float ObjGapSize;
     public GameObject BackgroundObj;
+    public GameObject BackgroundObj2;
     public GameObject GroundPlane;
     public float SpawnSize_x, SpawnSize_z;
 
@@ -107,7 +108,19 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
                 float DistanceScaled_y = Random.Range(1.0f, 3.0f);
 
-                GameObject bckOBj = BackgroundObj;
+                GameObject bckOBj; ;
+
+                int WhichObj = Random.Range(0, 2);
+                if (WhichObj == 0)
+                {
+                    bckOBj = BackgroundObj;
+                }
+                else
+                {
+                    bckOBj = BackgroundObj2;
+                }
+
+                //GameObject bckOBj = BackgroundObj;
                 bckOBj.name = "Piller" + PillerNumber;
                 PillerNumber++;
                 bckOBj.transform.localScale = new Vector3(DistanceScaled, DistanceScaled_y, DistanceScaled);
