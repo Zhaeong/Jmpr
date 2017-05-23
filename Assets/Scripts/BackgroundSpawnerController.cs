@@ -17,7 +17,7 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
     private Vector3 Objsize;
 
-    private GameObject GeneratedGround;
+    //private GameObject GeneratedGround;
 
     private float TL_x, TL_z;
     private float TR_x, TR_z;
@@ -174,7 +174,7 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
         int ObjNum = 0;
 
-        GeneratedGround.transform.position = new Vector3(transform.position.x, transform.position.y - y_offset, transform.position.z);
+        //GeneratedGround.transform.position = new Vector3(transform.position.x, transform.position.y - y_offset, transform.position.z);
 
         for (float z = initial_z; z > BL_z; z -= Objsize.z + ObjGapSize)
 
@@ -270,8 +270,8 @@ public class BackgroundSpawnerController : MonoBehaviour {
 
         Vector3 SpawnerPosit = transform.position;
 
-        Destroy(GeneratedGround);
-        GeneratedGround = Instantiate(GroundPlane, new Vector3(SpawnerPosit.x, SpawnerPosit.y - y_offset, SpawnerPosit.z), Quaternion.Euler(0, 0, 0));
+        //Destroy(GeneratedGround);
+        //GeneratedGround = Instantiate(GroundPlane, new Vector3(SpawnerPosit.x, SpawnerPosit.y - y_offset, SpawnerPosit.z), Quaternion.Euler(0, 0, 0));
 
         
 
