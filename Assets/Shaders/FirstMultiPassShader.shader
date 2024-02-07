@@ -1,4 +1,6 @@
-﻿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
 Shader "Custom/FirstMultiPassShader"
 {
@@ -52,7 +54,7 @@ Shader "Custom/FirstMultiPassShader"
 			v2f vert(appdata v)
 			{
 				v2f o;
-				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
+				o.pos = UnityObjectToClipPos(v.vertex);
 				half3 norm = mul((half3x3)UNITY_MATRIX_IT_MV, v.normal);
 				half2 offset = TransformViewToProjection(norm.xy);
 				o.pos.xy += offset * o.pos.z * _Outline;

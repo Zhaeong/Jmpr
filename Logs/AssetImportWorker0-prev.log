@@ -1,0 +1,541 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.19f1 (244b723c30a6) revision 2378610'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Education' Language: 'en' Physical Memory: 20417 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+F:\UnityEditor\2022.3.19f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Github/Jmpr
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+50724
+Successfully changed project path to: D:/Github/Jmpr
+D:/Github/Jmpr
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [18612] Host "[IP] 192.168.2.22 [Port] 0 [Flags] 2 [Guid] 2119783220 [EditorId] 2119783220 [Version] 1048832 [Id] WindowsEditor(7,BoraHorza) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [18612] Host "[IP] 192.168.2.22 [Port] 0 [Flags] 2 [Guid] 2119783220 [EditorId] 2119783220 [Version] 1048832 [Id] WindowsEditor(7,BoraHorza) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
+Unable to parse file Assets/Plugins/x86_64/Firebase/App.so.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Plugins/x86_64/Firebase/Auth.bundle.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Editor/Firebase.Editor.dll.meta: [Parser Failure at line 30: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Unity.Tasks.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Google.MiniJson.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Auth.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Plugins/x86_64/Firebase/App.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Plugins/x86_64/Firebase/App.bundle.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/iOS/Firebase.App.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Unity.Compat.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/iOS/Firebase.Auth.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Plugins/x86_64/Firebase/Auth.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.App.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Plugins/x86_64/Firebase/Auth.so.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Refreshing native plugins compatible for Editor in 18.99 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.19f1 (244b723c30a6)
+[Subsystems] Discovering subsystems at path F:/UnityEditor/2022.3.19f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Github/Jmpr/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 980 Ti (ID=0x17c8)
+    Vendor:   NVIDIA
+    VRAM:     6085 MB
+    Driver:   31.0.15.5123
+Initialize mono
+Mono path[0] = 'F:/UnityEditor/2022.3.19f1/Editor/Data/Managed'
+Mono path[1] = 'F:/UnityEditor/2022.3.19f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'F:/UnityEditor/2022.3.19f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56304
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: F:/UnityEditor/2022.3.19f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: F:/UnityEditor/2022.3.19f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.010854 seconds.
+- Loaded All Assemblies, in  0.601 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.425 seconds
+Domain Reload Profiling: 1025ms
+	BeginReloadAssembly (173ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (68ms)
+	RebuildNativeTypeToScriptingClass (23ms)
+	initialDomainReloadingComplete (84ms)
+	LoadAllAssembliesAndSetupDomain (252ms)
+		LoadAssemblies (173ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (249ms)
+			TypeCache.Refresh (247ms)
+				TypeCache.ScanAssembly (230ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (425ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (340ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (13ms)
+			SetLoadedEditorAssemblies (9ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (4ms)
+			ProcessInitializeOnLoadAttributes (250ms)
+			ProcessInitializeOnLoadMethodAttributes (63ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+Unable to parse file Assets/Firebase/Plugins/Google.MiniJson.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Unity.Tasks.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.App.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/iOS/Firebase.App.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/iOS/Firebase.Auth.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Unity.Compat.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Editor/Firebase.Editor.dll.meta: [Parser Failure at line 30: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Auth.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+Unable to parse file Assets/Firebase/Plugins/Google.MiniJson.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Unity.Tasks.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.App.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/iOS/Firebase.App.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/iOS/Firebase.Auth.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Unity.Compat.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Editor/Firebase.Editor.dll.meta: [Parser Failure at line 30: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Auth.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Google.MiniJson.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+Unable to parse file Assets/Firebase/Plugins/Unity.Tasks.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+Unable to parse file Assets/Firebase/Plugins/Firebase.App.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+Unable to parse file Assets/Firebase/Plugins/iOS/Firebase.App.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+Unable to parse file Assets/Firebase/Plugins/iOS/Firebase.Auth.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+Unable to parse file Assets/Firebase/Plugins/Unity.Compat.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+Unable to parse file Assets/Firebase/Editor/Firebase.Editor.dll.meta: [Parser Failure at line 30: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+Unable to parse file Assets/Firebase/Plugins/Firebase.Auth.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+- Loaded All Assemblies, in  0.679 seconds
+Unable to parse file Assets/Plugins/x86_64/Firebase/App.so.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Plugins/x86_64/Firebase/Auth.bundle.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Editor/Firebase.Editor.dll.meta: [Parser Failure at line 30: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Unity.Tasks.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Google.MiniJson.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Auth.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Plugins/x86_64/Firebase/App.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Plugins/x86_64/Firebase/App.bundle.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/iOS/Firebase.App.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Unity.Compat.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/iOS/Firebase.Auth.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Plugins/x86_64/Firebase/Auth.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.App.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Plugins/x86_64/Firebase/Auth.so.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Refreshing native plugins compatible for Editor in 10.23 ms, found 2 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Asset Pipeline Refresh (id=b89dd32db0a6fd04ab6276d5225acd9a): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=b84d9aaf65fa6a2429822259d7a0f0fa): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=8c1d25c92cff1824682d1045c9915a1b): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=1c47c333a98426c489f1260dca6b8b46): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=ed335f8cba4ed7a498525664a3beccb0): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=7dc4983bf2454ad488a230d081341ed1): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=0ff167d86d3b5994d8c67869639d04cb): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=22e0e2dfae8af584395c77265f31cf64): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=4ac88c644e3708e40b06beaf872d4981): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=40f64415ee7763f4194268b95d36d832): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=6b919b0cad5df9f4b94e7ffc0fbc729b): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=408d6d9d10035e044bf2dc7eea7f8176): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=1adeefb4b6eca0043841969190bab626): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=8a7724868a5874d4e827d4a8f6b8615f): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Asset Pipeline Refresh (id=7669545ac0e64e646ba5ca698f4074bd): Total: 0.000 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.749 seconds
+Domain Reload Profiling: 1428ms
+	BeginReloadAssembly (272ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (30ms)
+	RebuildCommonClasses (141ms)
+	RebuildNativeTypeToScriptingClass (26ms)
+	initialDomainReloadingComplete (45ms)
+	LoadAllAssembliesAndSetupDomain (194ms)
+		LoadAssemblies (350ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (23ms)
+			TypeCache.Refresh (20ms)
+				TypeCache.ScanAssembly (8ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (750ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (558ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (36ms)
+			ProcessInitializeOnLoadAttributes (462ms)
+			ProcessInitializeOnLoadMethodAttributes (39ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Refreshing native plugins compatible for Editor in 10.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 95 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 68 unused Assets / (79.6 KB). Loaded Objects now: 510.
+Memory consumption went from 57.4 MB to 57.3 MB.
+Total: 3.998100 ms (FindLiveObjects: 0.070400 ms CreateObjectMapping: 0.011600 ms MarkObjects: 3.716300 ms  DeleteObjects: 0.198300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 13123.225081 seconds.
+  path: Assets/CustomGuiSkin.guiskin
+  artifactKey: Guid(7aa564fb6eca98c4480f41c6d0c69718) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/CustomGuiSkin.guiskin using Guid(7aa564fb6eca98c4480f41c6d0c69718) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9188ccfa1bdfd3c9657987bfbbdb9387') in 0.026314 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Prepare
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Begin MonoManager ReloadAssembly
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+- Loaded All Assemblies, in  0.492 seconds
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Refreshing native plugins compatible for Editor in 9.74 ms, found 2 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.511 seconds
+Domain Reload Profiling: 1004ms
+	BeginReloadAssembly (230ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (31ms)
+	RebuildCommonClasses (53ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (35ms)
+	LoadAllAssembliesAndSetupDomain (158ms)
+		LoadAssemblies (294ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (8ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (512ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (351ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (26ms)
+			ProcessInitializeOnLoadAttributes (290ms)
+			ProcessInitializeOnLoadMethodAttributes (20ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Refreshing native plugins compatible for Editor in 7.41 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 83 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 66 unused Assets / (53.7 KB). Loaded Objects now: 511.
+Memory consumption went from 57.4 MB to 57.3 MB.
+Total: 2.247100 ms (FindLiveObjects: 0.063800 ms CreateObjectMapping: 0.011500 ms MarkObjects: 2.092500 ms  DeleteObjects: 0.078700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+========================================================================
+Received Prepare
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Begin MonoManager ReloadAssembly
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProviderBase:GetAllPrecompiledAssembliesInternal ()
+UnityEditor.Scripting.ScriptCompilation.PrecompiledAssemblyProvider:GetAllPrecompiledAssemblies ()
+UnityEditor.AssemblyValidation:CheckAssemblyReferences (string[],UnityEditor.AssemblyValidation/Error[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblyDefinitions (string[],Mono.Cecil.AssemblyDefinition[],System.Func`2<string, bool>)
+UnityEditor.AssemblyValidation:ValidateAssemblies (string[],bool)
+
+[C:\build\output\unity\unity\Runtime\Serialize\TransferFunctions\YAMLRead.cpp line 169]
+
+- Loaded All Assemblies, in  0.391 seconds
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Refreshing native plugins compatible for Editor in 8.98 ms, found 2 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.527 seconds
+Domain Reload Profiling: 918ms
+	BeginReloadAssembly (168ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (22ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (32ms)
+	LoadAllAssembliesAndSetupDomain (139ms)
+		LoadAssemblies (237ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (7ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (527ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (371ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (7ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (35ms)
+			ProcessInitializeOnLoadAttributes (301ms)
+			ProcessInitializeOnLoadMethodAttributes (20ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Unable to parse file Assets/Firebase/Plugins/Google.Sharpen.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Unable to parse file Assets/Firebase/Plugins/Firebase.Database.dll.meta: [Parser Failure at line 72: Expect ':' between key and value within mapping]
+Refreshing native plugins compatible for Editor in 8.01 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 84 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 66 unused Assets / (54.8 KB). Loaded Objects now: 511.
+Memory consumption went from 59.6 MB to 59.5 MB.
+Total: 2.510300 ms (FindLiveObjects: 0.050200 ms CreateObjectMapping: 0.008200 ms MarkObjects: 2.348900 ms  DeleteObjects: 0.101700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:CustomObjectIndexerAttribute: 6d391050e5a25f67b0a2c618074f2cd9 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
